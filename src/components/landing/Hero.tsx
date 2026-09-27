@@ -18,14 +18,14 @@ const scaleIn = (delay = 0) => ({
 });
 
 export default function Hero() {
-  // Authentic application flow illustrations (hospital building photo removed completely)
+  // Authentic application flow illustrations (cache-busted to ensure newly added images load immediately)
   const heroImages = [
-    "/homepageScreens/flow1.jpg",
-    "/homepageScreens/flow2.jpg",
-    "/homepageScreens/flow3.png",
-    "/homepageScreens/flow4.jpg",
-    "/homepageScreens/flow4.png",
-    "/homepageScreens/flow6.png",
+    "/homepageScreens/flow1.jpg?v=2",
+    "/homepageScreens/flow2.jpg?v=2",
+    "/homepageScreens/flow3.png?v=2",
+    "/homepageScreens/flow4.jpg?v=2",
+    "/homepageScreens/flow5.png?v=2",
+    "/homepageScreens/flow6.png?v=2",
   ];
 
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -162,6 +162,7 @@ export default function Hero() {
                   className="object-cover"
                   priority
                   loading="eager"
+                  unoptimized
                 />
               </motion.div>
             </AnimatePresence>
