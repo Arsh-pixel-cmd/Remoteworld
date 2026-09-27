@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { ArrowRight, ShieldCheck, HeartHandshake } from "lucide-react";
+import { ArrowRight, ShieldCheck, HeartHandshake, UserCheck, Activity } from "lucide-react";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import Logo from "../ui/Logo";
@@ -56,36 +56,59 @@ export default function Hero() {
       <div className="absolute top-20 left-10 w-48 h-48 bg-support-purple opacity-20 rounded-full blur-3xl pointer-events-none" />
       <div className="absolute bottom-20 right-10 w-80 h-80 bg-brand opacity-15 rounded-full blur-3xl pointer-events-none" />
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 sm:pt-24 md:pt-28 lg:pt-32 xl:pt-36 pb-8 sm:pb-12 relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center flex-1 my-auto">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 sm:pt-24 lg:pt-28 pb-14 sm:pb-20 lg:pb-24 relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center flex-1 my-auto">
         {/* Hero Text */}
-        <div className="space-y-5 sm:space-y-7 max-w-2xl mt-4 lg:mt-0">
+        <div className="space-y-4 sm:space-y-5 max-w-2xl mt-4 lg:mt-0">
           {/* Title */}
           <motion.h1
-            className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-tight text-ink"
+            className="text-2xl sm:text-3xl md:text-4xl xl:text-[2.75rem] font-bold leading-tight text-ink"
             {...fadeUp(0.1)}
           >
-            Healthcare, <br />
+            No One Should Have to, <br />
             <motion.span
               className="text-transparent bg-clip-text bg-gradient-to-r from-brand to-brand-dark inline-block"
               whileHover={{ scale: 1.05 }}
               transition={{ type: "spring", stiffness: 300, damping: 10 }}
             >
-              held together.
+              Navigate Healthcare Alone.
             </motion.span>
           </motion.h1>
 
           {/* Description */}
           <motion.p
-            className="text-base sm:text-lg md:text-xl text-ink-muted leading-relaxed"
-            {...fadeUp(0.4)}
+            className="text-sm sm:text-base md:text-lg text-ink-muted leading-relaxed max-w-xl"
+            {...fadeUp(0.3)}
           >
-            Stay connected to your care team and family. RemoteWard brings peace of mind, routine management, and instant support right to your fingertips—designed simply, for everyone.
+            RemoteWard brings patients, families, and healthcare teams closer together—helping patients access the care they need, enabling families to stay involved, and keeping healthcare teams connected beyond the hospital, so the right people can come together to support patients at every step of their care journey.
           </motion.p>
+
+          {/* Trust Signals */}
+          <motion.div
+            className="flex flex-wrap items-center gap-x-5 gap-y-2 text-xs sm:text-sm text-ink-muted font-medium pt-1"
+            {...fadeUp(0.5)}
+          >
+            <div className="flex items-center gap-1.5">
+              <ShieldCheck className="w-4 h-4 text-emerald-500 shrink-0" />
+              <span>Secure &amp; Private</span>
+            </div>
+            <div className="flex items-center gap-1.5">
+              <HeartHandshake className="w-4 h-4 text-brand shrink-0" />
+              <span>Patient-Centered</span>
+            </div>
+            <div className="flex items-center gap-1.5">
+              <UserCheck className="w-4 h-4 text-accent-alt shrink-0" />
+              <span>Older-Adult Friendly</span>
+            </div>
+            <div className="flex items-center gap-1.5">
+              <Activity className="w-4 h-4 text-brand-dark shrink-0" />
+              <span>Connected Care</span>
+            </div>
+          </motion.div>
 
           {/* CTA Buttons */}
           <motion.div
-            className="flex flex-col sm:flex-row gap-3 sm:gap-4 pt-2 w-full sm:w-auto"
-            initial={{ opacity: 0, y: 30 }}
+            className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4 pt-1 w-full sm:w-auto"
+            initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.6, ease: [0.25, 0.4, 0.25, 1] }}
           >
@@ -93,42 +116,29 @@ export default function Hero() {
               href="https://play.google.com/store/apps/details?id=com.application.remoteward"
               target="_blank"
               rel="noopener noreferrer"
-              className="bg-gradient-to-r from-brand to-brand-dark hover:brightness-110 text-white font-bold text-base sm:text-lg px-6 py-3.5 sm:py-4 rounded-xl text-center shadow-lg flex items-center justify-center cursor-pointer transition-all"
-              whileHover={{ scale: 1.04, y: -3 }}
+              className="group bg-gradient-to-r from-brand to-brand-dark hover:brightness-105 text-white font-semibold text-sm sm:text-base px-5 py-3 sm:px-6 sm:py-3.5 rounded-xl text-center shadow-md shadow-brand/20 hover:shadow-lg hover:shadow-brand/30 flex items-center justify-center cursor-pointer transition-all"
+              whileHover={{ scale: 1.03, y: -2 }}
               whileTap={{ scale: 0.97 }}
               transition={{ type: "spring", stiffness: 300, damping: 20 }}
             >
-              Get Started Now
-              <ArrowRight className="w-5 h-5 ml-2" />
+              Download the RemoteWard App
+              <ArrowRight className="w-4.5 h-4.5 ml-2 transition-transform duration-200 group-hover:translate-x-1" />
             </motion.a>
             <motion.a
-              href="#how-it-works"
-              className="bg-white border-2 border-brand text-brand hover:bg-brand hover:text-white font-bold text-base sm:text-lg px-6 py-3.5 sm:py-4 rounded-xl text-center transition-colors flex items-center justify-center cursor-pointer shadow-sm"
-              whileHover={{ scale: 1.04, y: -3 }}
+              href="#partners"
+              className="bg-white/90 backdrop-blur-sm border-2 border-brand text-brand hover:bg-brand hover:text-white font-semibold text-sm sm:text-base px-5 py-3 sm:px-6 sm:py-3.5 rounded-xl text-center transition-all flex items-center justify-center cursor-pointer shadow-sm hover:shadow-md"
+              whileHover={{ scale: 1.03, y: -2 }}
               whileTap={{ scale: 0.97 }}
               transition={{ type: "spring", stiffness: 300, damping: 20 }}
             >
-              How It Works
+              Partner With Us
             </motion.a>
-          </motion.div>
-
-          {/* Trust Signals */}
-          <motion.div
-            className="pt-2 sm:pt-4 flex flex-wrap items-center gap-x-6 gap-y-2.5 text-xs sm:text-sm text-ink-muted"
-            {...fadeUp(0.8)}
-          >
-            <div className="flex items-center">
-              <ShieldCheck className="w-4.5 h-4.5 sm:w-5 sm:h-5 text-accent-alt mr-1.5" /> Secure & Private
-            </div>
-            <div className="flex items-center">
-              <HeartHandshake className="w-4.5 h-4.5 sm:w-5 sm:h-5 text-brand mr-1.5" /> Loved by Families
-            </div>
           </motion.div>
         </div>
 
         {/* Hero Imagery */}
         <motion.div
-          className="relative w-full h-[320px] sm:h-[450px] lg:h-[550px] mt-8 lg:mt-0 animate-float max-w-lg mx-auto"
+          className="relative w-full h-[320px] sm:h-[420px] lg:h-[480px] xl:h-[500px] mt-8 lg:mt-0 animate-float max-w-lg mx-auto"
           {...scaleIn(0.3)}
         >
 

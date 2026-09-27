@@ -1,7 +1,7 @@
 import dynamic from "next/dynamic";
 import Navbar from "@/components/layout/Navbar";
 import Hero from "@/components/landing/Hero";
-import StatsBar from "@/components/landing/StatsBar";
+import SupportersMarquee from "@/components/landing/SupportersMarquee";
 import SmoothScroll from "@/components/providers/SmoothScroll";
 import SplashScreen from "@/components/ui/SplashScreen";
 
@@ -10,9 +10,9 @@ const ProblemSection = dynamic(() => import("@/components/landing/ProblemSection
 const HowItWorks = dynamic(() => import("@/components/landing/HowItWorks"));
 const WhyWeStarted = dynamic(() => import("@/components/landing/WhyWeStarted"));
 const StorySection = dynamic(() => import("@/components/landing/StorySection"));
-const DiseaseCommunities = dynamic(() => import("@/components/landing/DiseaseCommunities"));
 const Download = dynamic(() => import("@/components/landing/Download"));
 const PartnerForm = dynamic(() => import("@/components/landing/PartnerForm"));
+const ContactUs = dynamic(() => import("@/components/landing/ContactUs"));
 const FAQ = dynamic(() => import("@/components/landing/FAQ"));
 const Footer = dynamic(() => import("@/components/layout/Footer"));
 
@@ -23,14 +23,14 @@ export default function Home() {
         <Navbar />
         <main className="pb-24 sm:pb-28">
           <Hero />
-          <StatsBar />
+          <SupportersMarquee />
           <ProblemSection />
           <HowItWorks />
           <WhyWeStarted />
           <StorySection />
-          <DiseaseCommunities />
           <Download />
           <PartnerForm />
+          <ContactUs />
           <FAQ />
         </main>
         <Footer />

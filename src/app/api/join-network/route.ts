@@ -58,7 +58,7 @@ export async function POST(request: Request) {
     }
 
     const body = await request.json();
-    const { orgName, facilityType, location, contactName, email, phone, message, _rw_hp } = body;
+    const { orgName, facilityType, location, contactName, email, designation, phone, message, _rw_hp } = body;
 
     // Honeypot detection: If hidden field is filled, silently discard bot submission
     if (_rw_hp) {
@@ -86,6 +86,7 @@ export async function POST(request: Request) {
       orgName.length > 150 ||
       contactName.length > 150 ||
       location.length > 150 ||
+      (designation && designation.length > 150) ||
       phone.length > 50 ||
       (message && message.length > 3000)
     ) {
@@ -114,6 +115,7 @@ export async function POST(request: Request) {
     const safeLocation = escapeHtml(String(location).trim());
     const safeContactName = escapeHtml(String(contactName).trim());
     const safeEmail = escapeHtml(String(email).trim());
+    const safeDesignation = designation ? escapeHtml(String(designation).trim()) : "Not Specified";
     const safePhone = escapeHtml(String(phone).trim());
     const safeMessage = message ? escapeHtml(String(message).trim()) : "";
 
@@ -146,13 +148,17 @@ export async function POST(request: Request) {
               <td style="padding: 12px; color: #0f172a; border: 1px solid #e2e8f0;">${safeContactName}</td>
             </tr>
             <tr style="background-color: #f8fafc;">
+              <td style="padding: 12px; font-weight: 600; color: #334155; border: 1px solid #e2e8f0;">Designation</td>
+              <td style="padding: 12px; color: #0f172a; border: 1px solid #e2e8f0;">${safeDesignation}</td>
+            </tr>
+            <tr>
               <td style="padding: 12px; font-weight: 600; color: #334155; border: 1px solid #e2e8f0;">Email Address</td>
               <td style="padding: 12px; color: #03A1AC; border: 1px solid #e2e8f0;">
                 <a href="mailto:${safeEmail}" style="color: #03A1AC; text-decoration: none;">${safeEmail}</a>
               </td>
             </tr>
-            <tr>
-              <td style="padding: 12px; font-weight: 600; color: #334155; border: 1px solid #e2e8f0;">Phone / WhatsApp</td>
+            <tr style="background-color: #f8fafc;">
+              <td style="padding: 12px; font-weight: 600; color: #334155; border: 1px solid #e2e8f0;">Mobile Number</td>
               <td style="padding: 12px; color: #0f172a; border: 1px solid #e2e8f0;">${safePhone}</td>
             </tr>
           </table>

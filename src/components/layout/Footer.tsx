@@ -170,6 +170,11 @@ export default function Footer() {
                   Partners
                 </Link>
               </li>
+              <li>
+                <Link href="/#contact" className="text-surface-300 hover:text-brand hover:translate-x-1 transition-all duration-300 inline-block">
+                  Contact Us
+                </Link>
+              </li>
             </ul>
           </motion.div>
           

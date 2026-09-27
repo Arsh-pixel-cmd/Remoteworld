@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Building2, MapPin, User, Mail, Phone, MessageSquare, Send, CheckCircle2, Loader2, Hospital, X, Handshake } from "lucide-react";
+import { Building2, MapPin, User, Mail, Phone, MessageSquare, Send, CheckCircle2, Loader2, Hospital, X, Handshake, Briefcase } from "lucide-react";
 import AnimatedSection from "../ui/AnimatedSection";
 import Image from "next/image";
 
@@ -11,14 +11,14 @@ const containerVariants = {
   show: {
     opacity: 1,
     transition: {
-      staggerChildren: 0.1,
+      staggerChildren: 0.08,
     },
   },
 };
 
 const itemVariants = {
-  hidden: { opacity: 0, y: 20 },
-  show: { opacity: 1, y: 0, transition: { type: "spring" as const, stiffness: 100 } },
+  hidden: { opacity: 0, y: 16 },
+  show: { opacity: 1, y: 0, transition: { type: "spring" as const, stiffness: 120, damping: 15 } },
 };
 
 export default function PartnerForm() {
@@ -29,6 +29,7 @@ export default function PartnerForm() {
     location: "",
     contactName: "",
     email: "",
+    designation: "",
     phone: "",
     message: "",
     _rw_hp: "",
@@ -95,6 +96,7 @@ export default function PartnerForm() {
           location: "",
           contactName: "",
           email: "",
+          designation: "",
           phone: "",
           message: "",
           _rw_hp: "",
@@ -136,25 +138,17 @@ export default function PartnerForm() {
 
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <AnimatedSection className="text-center mb-8 sm:mb-12">
-            <div className="w-14 h-14 sm:w-16 sm:h-16 mx-auto mb-4 rounded-2xl bg-brand/10 flex items-center justify-center p-3 shadow-xs border border-brand/20">
-              <Image
-                src="/logos/doctor.jpg"
-                alt="Doctor & Hospital Network"
-                width={48}
-                height={48}
-                className="w-full h-full object-contain rounded-xl"
-                draggable={false}
-                loading="lazy"
-              />
-            </div>
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-ink mb-3 sm:mb-4">
-              Partner Your <span className="text-brand">Hospital or Clinic</span>
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-ink mb-3 sm:mb-4 tracking-tight">
+              For Healthcare <span className="text-brand">Organizations</span>
             </h2>
-            <p className="text-base sm:text-lg text-ink-muted max-w-2xl mx-auto mb-8 sm:mb-10">
-              Empower your patients with seamless virtual care coordination. Join the RemoteWard provider network and extend your care loop today.
+            <p className="text-lg sm:text-xl font-semibold text-brand mb-4">
+              Bring Your Healthcare Closer to Patients.
+            </p>
+            <p className="text-base sm:text-lg text-ink-muted max-w-2xl mx-auto mb-8 sm:mb-10 leading-relaxed">
+              Whether you are a hospital, clinic, diagnostic centre, or other healthcare organization, let&apos;s explore how RemoteWard can help you build a stronger digital connection with the people you serve.
             </p>
 
-            {/* ── Partner Now Button ── */}
+            {/* ── Partner With Us Button ── */}
             <motion.button
               onClick={() => setIsOpen(true)}
               className="inline-flex items-center gap-3 bg-brand hover:bg-brand-dark text-white font-bold text-base sm:text-lg px-8 sm:px-10 py-4 sm:py-5 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 cursor-pointer group"
@@ -162,7 +156,7 @@ export default function PartnerForm() {
               whileTap={{ scale: 0.97 }}
             >
               <Handshake className="w-5 h-5 sm:w-6 sm:h-6 transition-transform duration-300 group-hover:rotate-12" />
-              Partner Now
+              Partner With Us
               <motion.span
                 className="inline-block"
                 animate={{ x: [0, 4, 0] }}
@@ -203,13 +197,13 @@ export default function PartnerForm() {
             </button>
 
             {/* Centering scroll wrapper */}
-            <div 
+            <div
               className="min-h-full flex items-center justify-center p-3 sm:p-6 relative z-10 cursor-pointer"
               onClick={handleClose}
             >
               {/* Modal Card */}
               <motion.div
-                className="relative w-full max-w-3xl bg-white/95 backdrop-blur-xl border border-surface-200 shadow-2xl rounded-3xl p-6 sm:p-8 md:p-12 my-6 sm:my-8 cursor-default"
+                className="relative w-full max-w-3xl bg-white/95 backdrop-blur-xl border border-surface-200 shadow-2xl rounded-3xl p-6 sm:p-8 md:p-10 my-6 sm:my-8 cursor-default"
                 initial={{ opacity: 0, scale: 0.85, y: 50 }}
                 animate={{ opacity: 1, scale: 1, y: 0 }}
                 exit={{ opacity: 0, scale: 0.85, y: 50 }}
@@ -230,9 +224,11 @@ export default function PartnerForm() {
                     />
                   </div>
                   <h3 className="text-2xl sm:text-3xl font-bold text-ink">
-                    Join Our <span className="text-brand">Network</span>
+                    Partner <span className="text-brand">With Us</span>
                   </h3>
-                  <p className="text-ink-muted text-sm sm:text-base mt-2">Fill in your details and we&apos;ll get back within 24–48 hours.</p>
+                  <p className="text-ink-muted text-sm sm:text-base mt-2">
+                    Fill in your details and we&apos;ll get back within 24–48 hours.
+                  </p>
                 </div>
 
                 <AnimatePresence mode="wait">
@@ -267,7 +263,7 @@ export default function PartnerForm() {
                         transition={{ delay: 0.5 }}
                         className="text-lg text-ink-muted max-w-md mx-auto"
                       >
-                        Thank you for applying to join the RemoteWard network. Our partnership team will review your clinic details and reach out within 24-48 hours.
+                        Thank you for applying to partner with RemoteWard. Our team will review your organization details and reach out within 24-48 hours.
                       </motion.p>
 
                       {[...Array(8)].map((_, i) => (
@@ -298,7 +294,7 @@ export default function PartnerForm() {
                       initial="hidden"
                       animate="show"
                       exit={{ opacity: 0, y: 30, transition: { duration: 0.3 } }}
-                      className="space-y-6"
+                      className="space-y-5"
                     >
                       {/* Honeypot field to block automated bots */}
                       <input
@@ -311,9 +307,21 @@ export default function PartnerForm() {
                         autoComplete="off"
                         aria-hidden="true"
                       />
-                      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                        <motion.div variants={itemVariants} className="space-y-2">
-                          <label className="block text-sm font-semibold text-ink-muted">Hospital or Clinic Name</label>
+
+                      {/* Section Label: Tell Us About Your Organization */}
+                      <motion.div variants={itemVariants} className="pb-1 border-b border-surface-200/80">
+                        <h4 className="text-base sm:text-lg font-bold text-ink flex items-center gap-2">
+                          <Building2 className="w-5 h-5 text-brand" />
+                          Tell Us About Your Organization
+                        </h4>
+                      </motion.div>
+
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+                        {/* 1. Organization Name */}
+                        <motion.div variants={itemVariants} className="space-y-1.5">
+                          <label className="block text-sm font-semibold text-ink">
+                            Organization Name <span className="text-brand">*</span>
+                          </label>
                           <div className="relative flex items-center">
                             <Building2 className="absolute left-4 w-5 h-5 text-ink-muted/60" />
                             <input
@@ -322,32 +330,39 @@ export default function PartnerForm() {
                               value={formData.orgName}
                               onChange={handleChange}
                               required
-                              placeholder="e.g. Metro Care Hospital"
-                              className="w-full bg-surface-50 border border-surface-200 focus:border-brand focus:ring-1 focus:ring-brand rounded-xl py-3.5 pl-12 pr-4 text-ink placeholder-ink-muted/50 outline-none transition-all"
+                              placeholder="e.g. City Hospital or Care Clinic"
+                              className="w-full bg-surface-50 border border-surface-200 focus:border-brand focus:ring-1 focus:ring-brand rounded-xl py-3 pl-12 pr-4 text-ink placeholder-ink-muted/50 outline-none transition-all text-sm"
                             />
                           </div>
                         </motion.div>
 
-                        <motion.div variants={itemVariants} className="space-y-2">
-                          <label className="block text-sm font-semibold text-ink-muted">Facility Type</label>
+                        {/* 2. Organization Type */}
+                        <motion.div variants={itemVariants} className="space-y-1.5">
+                          <label className="block text-sm font-semibold text-ink">
+                            Organization Type <span className="text-brand">*</span>
+                          </label>
                           <div className="relative flex items-center">
                             <Hospital className="absolute left-4 w-5 h-5 text-ink-muted/60" />
                             <select
                               name="facilityType"
                               value={formData.facilityType}
                               onChange={handleChange}
-                              className="w-full bg-surface-50 border border-surface-200 focus:border-brand focus:ring-1 focus:ring-brand rounded-xl py-3.5 pl-12 pr-4 text-ink outline-none transition-all appearance-none cursor-pointer"
+                              className="w-full bg-surface-50 border border-surface-200 focus:border-brand focus:ring-1 focus:ring-brand rounded-xl py-3 pl-12 pr-10 text-ink outline-none transition-all appearance-none cursor-pointer text-sm"
                             >
                               <option value="Hospital">Hospital</option>
                               <option value="Clinic">Clinic</option>
                               <option value="Diagnostic Center">Diagnostic Center</option>
-                              <option value="Care Facility">Elderly/Care Facility</option>
+                              <option value="Other">Other</option>
                             </select>
+                            <span className="absolute right-4 pointer-events-none text-ink-muted text-xs">▼</span>
                           </div>
                         </motion.div>
 
-                        <motion.div variants={itemVariants} className="space-y-2">
-                          <label className="block text-sm font-semibold text-ink-muted">Location (City, State)</label>
+                        {/* 3. City / Location */}
+                        <motion.div variants={itemVariants} className="space-y-1.5">
+                          <label className="block text-sm font-semibold text-ink">
+                            City / Location <span className="text-brand">*</span>
+                          </label>
                           <div className="relative flex items-center">
                             <MapPin className="absolute left-4 w-5 h-5 text-ink-muted/60" />
                             <input
@@ -356,14 +371,17 @@ export default function PartnerForm() {
                               value={formData.location}
                               onChange={handleChange}
                               required
-                              placeholder="e.g. Chicago, IL"
-                              className="w-full bg-surface-50 border border-surface-200 focus:border-brand focus:ring-1 focus:ring-brand rounded-xl py-3.5 pl-12 pr-4 text-ink placeholder-ink-muted/50 outline-none transition-all"
+                              placeholder="e.g. Mumbai, New Delhi, Bengaluru"
+                              className="w-full bg-surface-50 border border-surface-200 focus:border-brand focus:ring-1 focus:ring-brand rounded-xl py-3 pl-12 pr-4 text-ink placeholder-ink-muted/50 outline-none transition-all text-sm"
                             />
                           </div>
                         </motion.div>
 
-                        <motion.div variants={itemVariants} className="space-y-2">
-                          <label className="block text-sm font-semibold text-ink-muted">Contact Person Name</label>
+                        {/* 4. Contact Person */}
+                        <motion.div variants={itemVariants} className="space-y-1.5">
+                          <label className="block text-sm font-semibold text-ink">
+                            Contact Person <span className="text-brand">*</span>
+                          </label>
                           <div className="relative flex items-center">
                             <User className="absolute left-4 w-5 h-5 text-ink-muted/60" />
                             <input
@@ -372,14 +390,17 @@ export default function PartnerForm() {
                               value={formData.contactName}
                               onChange={handleChange}
                               required
-                              placeholder="e.g. Dr. Sarah Jenkins"
-                              className="w-full bg-surface-50 border border-surface-200 focus:border-brand focus:ring-1 focus:ring-brand rounded-xl py-3.5 pl-12 pr-4 text-ink placeholder-ink-muted/50 outline-none transition-all"
+                              placeholder="e.g. Dr. Rajesh Kumar"
+                              className="w-full bg-surface-50 border border-surface-200 focus:border-brand focus:ring-1 focus:ring-brand rounded-xl py-3 pl-12 pr-4 text-ink placeholder-ink-muted/50 outline-none transition-all text-sm"
                             />
                           </div>
                         </motion.div>
 
-                        <motion.div variants={itemVariants} className="space-y-2">
-                          <label className="block text-sm font-semibold text-ink-muted">Official Email Address</label>
+                        {/* 5. Official Email Address */}
+                        <motion.div variants={itemVariants} className="space-y-1.5">
+                          <label className="block text-sm font-semibold text-ink">
+                            Official Email Address <span className="text-brand">*</span>
+                          </label>
                           <div className="relative flex items-center">
                             <Mail className="absolute left-4 w-5 h-5 text-ink-muted/60" />
                             <input
@@ -388,14 +409,36 @@ export default function PartnerForm() {
                               value={formData.email}
                               onChange={handleChange}
                               required
-                              placeholder="e.g. contact@metrocare.com"
-                              className="w-full bg-surface-50 border border-surface-200 focus:border-brand focus:ring-1 focus:ring-brand rounded-xl py-3.5 pl-12 pr-4 text-ink placeholder-ink-muted/50 outline-none transition-all"
+                              placeholder="e.g. partnerships@organization.com"
+                              className="w-full bg-surface-50 border border-surface-200 focus:border-brand focus:ring-1 focus:ring-brand rounded-xl py-3 pl-12 pr-4 text-ink placeholder-ink-muted/50 outline-none transition-all text-sm"
                             />
                           </div>
                         </motion.div>
 
-                        <motion.div variants={itemVariants} className="space-y-2">
-                          <label className="block text-sm font-semibold text-ink-muted">WhatsApp / Phone Number</label>
+                        {/* 6. Designation */}
+                        <motion.div variants={itemVariants} className="space-y-1.5">
+                          <label className="block text-sm font-semibold text-ink">
+                            Designation <span className="text-brand">*</span>
+                          </label>
+                          <div className="relative flex items-center">
+                            <Briefcase className="absolute left-4 w-5 h-5 text-ink-muted/60" />
+                            <input
+                              type="text"
+                              name="designation"
+                              value={formData.designation}
+                              onChange={handleChange}
+                              required
+                              placeholder="e.g. Medical Director, Administrator"
+                              className="w-full bg-surface-50 border border-surface-200 focus:border-brand focus:ring-1 focus:ring-brand rounded-xl py-3 pl-12 pr-4 text-ink placeholder-ink-muted/50 outline-none transition-all text-sm"
+                            />
+                          </div>
+                        </motion.div>
+
+                        {/* 7. Mobile Number (spanning full width or grid) */}
+                        <motion.div variants={itemVariants} className="space-y-1.5 md:col-span-2">
+                          <label className="block text-sm font-semibold text-ink">
+                            Mobile Number <span className="text-brand">*</span>
+                          </label>
                           <div className="relative flex items-center">
                             <Phone className="absolute left-4 w-5 h-5 text-ink-muted/60" />
                             <input
@@ -404,33 +447,37 @@ export default function PartnerForm() {
                               value={formData.phone}
                               onChange={handleChange}
                               required
-                              placeholder="e.g. +1 (555) 019-2834"
-                              className="w-full bg-surface-50 border border-surface-200 focus:border-brand focus:ring-1 focus:ring-brand rounded-xl py-3.5 pl-12 pr-4 text-ink placeholder-ink-muted/50 outline-none transition-all"
+                              placeholder="e.g. +91 98765 43210"
+                              className="w-full bg-surface-50 border border-surface-200 focus:border-brand focus:ring-1 focus:ring-brand rounded-xl py-3 pl-12 pr-4 text-ink placeholder-ink-muted/50 outline-none transition-all text-sm"
                             />
                           </div>
                         </motion.div>
                       </div>
 
-                      <motion.div variants={itemVariants} className="space-y-2">
-                        <label className="block text-sm font-semibold text-ink-muted">Additional Info or Requirements (Optional)</label>
+                      {/* 8. Additional Info or Requirements (Optional)? */}
+                      <motion.div variants={itemVariants} className="space-y-1.5">
+                        <label className="block text-sm font-semibold text-ink">
+                          Additional Info or Requirements (Optional)?
+                        </label>
                         <div className="relative flex items-start">
-                          <MessageSquare className="absolute left-4 top-4 w-5 h-5 text-ink-muted/60" />
+                          <MessageSquare className="absolute left-4 top-3.5 w-5 h-5 text-ink-muted/60" />
                           <textarea
                             name="message"
                             value={formData.message}
                             onChange={handleChange}
-                            rows={4}
-                            placeholder="Tell us a little bit about your facility, patient volume, or customization needs..."
-                            className="w-full bg-surface-50 border border-surface-200 focus:border-brand focus:ring-1 focus:ring-brand rounded-xl py-3.5 pl-12 pr-4 text-ink placeholder-ink-muted/50 outline-none transition-all resize-none"
+                            rows={3}
+                            placeholder="Tell us about your facility, patient volume, or specific requirements..."
+                            className="w-full bg-surface-50 border border-surface-200 focus:border-brand focus:ring-1 focus:ring-brand rounded-xl py-3 pl-12 pr-4 text-ink placeholder-ink-muted/50 outline-none transition-all resize-none text-sm"
                           />
                         </div>
                       </motion.div>
 
-                      <motion.div variants={itemVariants} className="pt-4 flex flex-col items-center">
+                      {/* Submit Button */}
+                      <motion.div variants={itemVariants} className="pt-2 flex flex-col items-center">
                         <button
                           type="submit"
                           disabled={status === "submitting"}
-                          className="w-full sm:w-auto min-w-[200px] bg-brand hover:bg-brand-dark disabled:bg-brand/60 text-white font-bold text-lg px-8 py-4 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-0.5 active:translate-y-0 flex items-center justify-center gap-2 cursor-pointer"
+                          className="w-full sm:w-auto min-w-[200px] bg-brand hover:bg-brand-dark disabled:bg-brand/60 text-white font-bold text-base sm:text-lg px-10 py-3.5 sm:py-4 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-0.5 active:translate-y-0 flex items-center justify-center gap-2 cursor-pointer"
                         >
                           {status === "submitting" ? (
                             <>
@@ -440,7 +487,7 @@ export default function PartnerForm() {
                           ) : (
                             <>
                               <Send className="w-5 h-5" />
-                              Apply to Partner
+                              Submit
                             </>
                           )}
                         </button>
@@ -449,7 +496,7 @@ export default function PartnerForm() {
                           <motion.p
                             initial={{ opacity: 0, y: 10 }}
                             animate={{ opacity: 1, y: 0 }}
-                            className="text-red-500 text-sm font-medium mt-4 text-center"
+                            className="text-red-500 text-sm font-medium mt-3 text-center"
                           >
                             {errorMessage}
                           </motion.p>

@@ -56,13 +56,13 @@ export default function Download() {
         <div className="lg:w-1/2 space-y-6 sm:space-y-8 text-center lg:text-left">
           <AnimatedSection direction="left" delay={0.1}>
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold leading-tight">
-              Ready for simpler, safer days?
+              Take Control of Your Healthcare.
             </h2>
           </AnimatedSection>
 
           <AnimatedSection direction="left" delay={0.25}>
             <p className="text-base sm:text-lg md:text-xl text-surface-100 opacity-90 leading-relaxed">
-              Join thousands of families using RemoteWard to stay connected and organized. The app is free to download and sets up in under 2 minutes.
+              Download RemoteWard Now: The right information, service, or support can matter when time is not on your side.
             </p>
           </AnimatedSection>
 
@@ -72,19 +72,19 @@ export default function Download() {
               <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-lg bg-highlight/20 flex items-center justify-center mr-3 flex-shrink-0">
                 <CheckCircle2 className="w-4 h-4 sm:w-5 sm:h-5 text-highlight" />
               </div>
-              Large text and high-contrast buttons
+              National Health Authority Approved — Built for India&apos;s digital healthcare ecosystem.
             </motion.li>
             <motion.li variants={staggerChildLeft} className="flex items-center">
               <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-lg bg-highlight/20 flex items-center justify-center mr-3 flex-shrink-0">
                 <CheckCircle2 className="w-4 h-4 sm:w-5 sm:h-5 text-highlight" />
               </div>
-              Voice-guided setup available
+              ABDM Compliant — Designed to support secure, connected digital health services.
             </motion.li>
             <motion.li variants={staggerChildLeft} className="flex items-center">
               <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-lg bg-highlight/20 flex items-center justify-center mr-3 flex-shrink-0">
                 <CheckCircle2 className="w-4 h-4 sm:w-5 sm:h-5 text-highlight" />
               </div>
-              24/7 human support hotline
+              Security Audited & FT Approved — Built and tested for a safe, reliable healthcare experience.
             </motion.li>
           </StaggerContainer>
 

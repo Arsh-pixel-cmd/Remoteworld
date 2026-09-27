@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useCallback, useEffect } from "react";
-import { Download, UserPlus, Users, Stethoscope, Calendar, Heart, ChevronLeft, ChevronRight, ArrowRight } from "lucide-react";
+import { Download, UserPlus, Users, Stethoscope, Heart, ChevronLeft, ChevronRight, ArrowRight } from "lucide-react";
 import { motion } from "framer-motion";
 import AnimatedSection from "../ui/AnimatedSection";
 import Image from "next/image";
@@ -14,9 +14,9 @@ export default function HowItWorks() {
     {
       num: "01",
       stepLabel: "STEP 1",
-      title: "Download App",
+      title: "Download the App",
       badge: "START HERE",
-      desc: "Get RemoteWard from the Google Play Store on your tablet or smartphone.",
+      desc: "Install RemoteWard on your phone to get started.",
       icon: Download,
       accentColor: "#03A1AC",
       bgLight: "bg-brand/10",
@@ -33,9 +33,9 @@ export default function HowItWorks() {
     {
       num: "02",
       stepLabel: "STEP 2",
-      title: "Create Profile",
+      title: "Create Your Profile",
       badge: "QUICK SETUP",
-      desc: "Enter basic health info or link your existing digital health accounts securely.",
+      desc: "Register with your Aadhar number and add your essential details to set up your healthcare profile.",
       icon: UserPlus,
       accentColor: "#809CE6",
       bgLight: "bg-support-blue/15",
@@ -45,16 +45,16 @@ export default function HowItWorks() {
           <div className="w-12 h-12 rounded-2xl bg-support-blue text-white flex items-center justify-center shadow-md mb-1.5">
             <UserPlus className="w-6 h-6" />
           </div>
-          <span className="text-[10px] font-black uppercase text-support-blue tracking-wider">ABHA Link</span>
+          <span className="text-[10px] font-black uppercase text-support-blue tracking-wider">Aadhar Link</span>
         </div>
       ),
     },
     {
       num: "03",
       stepLabel: "STEP 3",
-      title: "Add Family",
-      badge: "CARE CIRCLE",
-      desc: "Invite trusted family members or caregivers to join your secure health circle.",
+      title: "One Family Account",
+      badge: "FAMILY HUB",
+      desc: "Use one communication number to access and manage multiple healthcare profiles for your family in one place.",
       icon: Users,
       accentColor: "#CDBDF7",
       bgLight: "bg-support-purple/25",
@@ -64,16 +64,16 @@ export default function HowItWorks() {
           <div className="w-12 h-12 rounded-2xl bg-[#9B80E6] text-white flex items-center justify-center shadow-md mb-1.5">
             <Users className="w-6 h-6" />
           </div>
-          <span className="text-[10px] font-black uppercase text-[#7352D0] tracking-wider">Sync Circle</span>
+          <span className="text-[10px] font-black uppercase text-[#7352D0] tracking-wider">Family Profiles</span>
         </div>
       ),
     },
     {
       num: "04",
       stepLabel: "STEP 4",
-      title: "Connect Doctor",
-      badge: "CLINIC SYNC",
-      desc: "Optionally link with participating clinics to sync prescriptions and reports.",
+      title: "Explore Healthcare Services",
+      badge: "SERVICES",
+      desc: "Discover the healthcare services available to you through RemoteWard.",
       icon: Stethoscope,
       accentColor: "#E39FF6",
       bgLight: "bg-accent/15",
@@ -83,7 +83,7 @@ export default function HowItWorks() {
           <div className="w-12 h-12 rounded-2xl bg-[#ffff] text-white flex items-center justify-center shadow-md mb-1.5 overflow-hidden p-2">
             <Image
               src="/logos/Group1.svg"
-              alt="Connect Doctor"
+              alt="Explore Services"
               width={32}
               height={32}
               className="w-7 h-7 object-contain rounded-md"
@@ -91,17 +91,17 @@ export default function HowItWorks() {
               loading="lazy"
             />
           </div>
-          <span className="text-[10px] font-black uppercase text-[#710193] tracking-wider">e-Prescriptions</span>
+          <span className="text-[10px] font-black uppercase text-[#710193] tracking-wider">Explore</span>
         </div>
       ),
     },
     {
       num: "05",
       stepLabel: "STEP 5",
-      title: "Book Appointment",
-      badge: "REMINDERS",
-      desc: "Schedule calls or checkups directly and receive easy-to-read reminders.",
-      icon: Calendar,
+      title: "Manage Your Healthcare",
+      badge: "ALL IN ONE",
+      desc: "Access your health records, documents, and healthcare services whenever you need them.",
+      icon: Heart,
       accentColor: "#FFB900",
       bgLight: "bg-highlight/15",
       textColor: "text-highlight-dark",
@@ -110,7 +110,7 @@ export default function HowItWorks() {
           <div className="w-12 h-12 rounded-2xl bg-white text-ink flex items-center justify-center shadow-md mb-1.5 font-black overflow-hidden p-2">
             <Image
               src="/logos/calender.jpg"
-              alt="Book Appointment"
+              alt="Manage Healthcare"
               width={32}
               height={32}
               className="w-7 h-7 object-contain rounded-md"
@@ -118,34 +118,7 @@ export default function HowItWorks() {
               loading="lazy"
             />
           </div>
-          <span className="text-[10px] font-black uppercase text-highlight-dark tracking-wider">Schedule</span>
-        </div>
-      ),
-    },
-    {
-      num: "06",
-      stepLabel: "STEP 6",
-      title: "Stay Connected",
-      badge: "PEACE OF MIND",
-      desc: "Rest easy knowing updates are shared with your circle in real time.",
-      icon: Heart,
-      accentColor: "#FD3C3C",
-      bgLight: "bg-alert/10",
-      textColor: "text-alert",
-      visual: (
-        <div className="w-24 h-24 sm:w-28 sm:h-28 rounded-3xl bg-gradient-to-br from-alert/20 to-alert/5 border border-alert/20 flex flex-col items-center justify-center p-3 shadow-inner relative">
-          <div className="w-12 h-12 rounded-2xl bg-[#FF9D9D] text-white flex items-center justify-center shadow-md mb-1.5 overflow-hidden p-2">
-            <Image
-              src="/logos/heart.svg"
-              alt="Stay Connected"
-              width={32}
-              height={32}
-              className="w-7 h-7 object-contain rounded-md"
-              draggable={false}
-              loading="lazy"
-            />
-          </div>
-          <span className="text-[10px] font-black uppercase text-alert tracking-wider">Real-time</span>
+          <span className="text-[10px] font-black uppercase text-highlight-dark tracking-wider">Manage</span>
         </div>
       ),
     },
@@ -198,13 +171,13 @@ export default function HowItWorks() {
         {/* Header */}
         <AnimatedSection direction="up" className="text-center max-w-3xl mx-auto mb-10 sm:mb-14">
           <h2 className="text-brand font-semibold tracking-wide uppercase text-xs sm:text-sm mb-2 sm:mb-3">
-            Getting Started
+            The Solution Starts Here
           </h2>
           <h3 className="text-3xl sm:text-4xl md:text-5xl font-bold text-ink mb-4 sm:mb-6">
-            Six simple steps to peace of mind.
+            Five simple steps to peace of mind.
           </h3>
           <p className="text-base sm:text-lg md:text-xl text-ink-muted">
-            Getting set up with RemoteWard is designed to be easy and takes just a few minutes.
+            From Digital OPD and health records to Homecare, Blood Bank, and PMJAY Balance Check, RemoteWard brings essential healthcare services together for you and your family.
           </p>
         </AnimatedSection>
 
