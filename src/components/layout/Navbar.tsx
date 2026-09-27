@@ -262,7 +262,7 @@ export default function Navbar() {
     }
 
     if (id === "home") {
-      const lenis = (window as any).__lenis;
+      const lenis = window.__lenis;
       if (lenis) {
         lenis.scrollTo(0, { offset: 0, duration: 1.1 });
       } else {
@@ -272,7 +272,7 @@ export default function Navbar() {
       const targetId = id === "remoteward" ? "how-it-works" : id;
       const el = document.getElementById(targetId) || document.getElementById(id);
       if (el) {
-        const lenis = (window as any).__lenis;
+        const lenis = window.__lenis;
         if (lenis) {
           lenis.scrollTo(el, { offset: -60, duration: 1.1 });
         } else {

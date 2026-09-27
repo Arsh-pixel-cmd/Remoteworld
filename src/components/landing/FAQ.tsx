@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useMemo } from "react";
-import { Plus, Search, ChevronDown, ChevronUp, HelpCircle } from "lucide-react";
+import { Plus, Search, ChevronDown, ChevronUp } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import AnimatedSection from "../ui/AnimatedSection";
 
@@ -12,21 +12,15 @@ interface FAQItem {
   answer: string;
 }
 
-export default function FAQ() {
-  const [activeCategory, setActiveCategory] = useState<string>("all");
-  const [searchQuery, setSearchQuery] = useState("");
-  const [openIndex, setOpenIndex] = useState<number | null>(null);
-  const [showAll, setShowAll] = useState(false);
+const CATEGORIES = [
+  { id: "all", label: "All Questions" },
+  { id: "general", label: "General & Family" },
+  { id: "abha", label: "ABDM & ABHA" },
+  { id: "services", label: "Services & Emergency" },
+  { id: "security", label: "Privacy & Consent" },
+];
 
-  const categories = [
-    { id: "all", label: "All Questions" },
-    { id: "general", label: "General & Family" },
-    { id: "abha", label: "ABDM & ABHA" },
-    { id: "services", label: "Services & Emergency" },
-    { id: "security", label: "Privacy & Consent" },
-  ];
-
-  const faqItems: FAQItem[] = [
+const FAQ_ITEMS: FAQItem[] = [
     {
       id: 1,
       category: "general",
@@ -155,9 +149,15 @@ export default function FAQ() {
     },
   ];
 
+export default function FAQ() {
+  const [activeCategory, setActiveCategory] = useState<string>("all");
+  const [searchQuery, setSearchQuery] = useState("");
+  const [openIndex, setOpenIndex] = useState<number | null>(null);
+  const [showAll, setShowAll] = useState(false);
+
   // Filter items based on category and search query
   const filteredItems = useMemo(() => {
-    return faqItems.filter((item) => {
+    return FAQ_ITEMS.filter((item) => {
       const matchesCategory = activeCategory === "all" || item.category === activeCategory;
       const matchesSearch =
         searchQuery.trim() === "" ||
@@ -219,7 +219,7 @@ export default function FAQ() {
 
           {/* Category Tabs */}
           <div className="flex items-center justify-start sm:justify-center gap-2 overflow-x-auto pb-2 scrollbar-none text-xs sm:text-sm">
-            {categories.map((cat) => {
+            {CATEGORIES.map((cat) => {
               const isActive = activeCategory === cat.id;
               return (
                 <button
