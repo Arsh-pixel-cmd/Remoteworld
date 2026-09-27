@@ -162,7 +162,9 @@ export default function HowItWorks() {
   };
 
   return (
-    <section id="how-it-works" className="py-14 sm:py-20 lg:py-24 bg-[#FAF9F5] relative overflow-hidden">
+    <section id="how-it-works" className="scroll-mt-16 py-14 sm:py-20 lg:py-24 bg-[#FAF9F5] relative overflow-hidden">
+      <div id="remoteward" className="absolute -top-16 left-0 w-0 h-0 pointer-events-none" />
+      <div id="for-patients" className="absolute -top-16 left-0 w-0 h-0 pointer-events-none" />
       {/* Decorative background glow */}
       <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-[700px] h-[350px] bg-brand/5 rounded-full blur-3xl pointer-events-none" />
 

@@ -1,7 +1,7 @@
 "use client";
 
-import { useState, useEffect } from "react";
-import { Handshake, HelpCircle, type LucideIcon } from "lucide-react";
+import { useState, useEffect, useRef } from "react";
+import { Handshake, Info, type LucideIcon } from "lucide-react";
 import { motion } from "framer-motion";
 import { usePathname, useRouter } from "next/navigation";
 
@@ -44,8 +44,8 @@ function HomeNavIcon({ active }: { active: boolean }) {
   );
 }
 
-/* ── Custom About SVG Icon matching /logos/about.svg with authentic two-tone favicon styling ── */
-function AboutNavIcon({ active }: { active: boolean }) {
+/* ── Custom RemoteWard SVG Icon matching authentic two-tone RemoteWard mark ── */
+function RemoteWardNavIcon({ active }: { active: boolean }) {
   return (
     <svg
       width={24}
@@ -77,6 +77,8 @@ function AboutNavIcon({ active }: { active: boolean }) {
 function NavCircle({
   id,
   label,
+  sublabel,
+  scrollTo,
   Icon,
   customIcon,
   active,
@@ -84,17 +86,22 @@ function NavCircle({
 }: {
   id: string;
   label: string;
+  sublabel?: string;
+  scrollTo?: string;
   Icon?: LucideIcon;
   customIcon?: React.ReactNode;
   active: boolean;
   onClick: (id: string) => void;
 }) {
+  const fullLabel = sublabel ? `${label} (${sublabel})` : label;
+
   return (
     <motion.button
       onClick={() => onClick(id)}
+      data-scroll-to={scrollTo}
       className="relative z-10 rounded-full flex items-center justify-center transition-all duration-300 cursor-pointer group focus:outline-none hover:shadow-[0_0_18px_rgba(3,161,172,0.35)]"
-      aria-label={label}
-      title={label}
+      aria-label={fullLabel}
+      title={fullLabel}
       whileHover={{ scale: active ? 1.03 : 1.1 }}
       whileTap={{ scale: 0.94 }}
       transition={{ type: "spring", stiffness: 400, damping: 25 }}
@@ -104,6 +111,12 @@ function NavCircle({
         backgroundColor: "#323C3E",
       }}
     >
+      {/* Floating tooltip */}
+      <span className="absolute -top-11 left-1/2 -translate-x-1/2 px-2.5 py-1 bg-[#1E2526] text-white text-[11px] font-medium rounded-lg shadow-xl pointer-events-none opacity-0 group-hover:opacity-100 transition-all duration-200 whitespace-nowrap border border-white/10 -translate-y-1 group-hover:translate-y-0 z-30">
+        <span>{label}</span>
+        {sublabel && <span className="text-[#03A1AC] ml-1">({sublabel})</span>}
+      </span>
+
       {/* Morphing active ring */}
       {active && (
         <motion.div
@@ -172,6 +185,8 @@ function PinchBridge() {
 
 export default function Navbar() {
   const [rawActiveSection, setRawActiveSection] = useState("home");
+  const isManualNavRef = useRef(false);
+  const manualTimerRef = useRef<NodeJS.Timeout | null>(null);
   const pathname = usePathname();
   const router = useRouter();
 
@@ -183,36 +198,36 @@ export default function Navbar() {
     }
 
     const handleScroll = () => {
+      // If user recently clicked a nav item, don't overwrite during the scroll animation
+      if (isManualNavRef.current) {
+        return;
+      }
+
       // If we are at the very top of the page, force highlight the Home tab
-      if (window.scrollY < 120) {
+      if (window.scrollY < 80) {
         setRawActiveSection("home");
         return;
       }
 
-      // If scrolled near the bottom of the page, highlight FAQ
-      if (window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 100) {
-        setRawActiveSection("faq");
-        return;
-      }
+      const scrollPos = window.scrollY + 280;
 
-      const scrollPos = window.scrollY + 350;
-
-      const getAbsoluteTop = (id: string) => {
-        const el = document.getElementById(id);
+      const getElementTop = (primaryId: string, fallbackId?: string) => {
+        const el = document.getElementById(primaryId) || (fallbackId ? document.getElementById(fallbackId) : null);
         if (!el) return Infinity;
-        return el.getBoundingClientRect().top + window.scrollY;
+        const rect = el.getBoundingClientRect();
+        return rect.top + window.scrollY;
       };
 
-      const faqTop = getAbsoluteTop("faq");
-      const partnersTop = Math.min(getAbsoluteTop("partners"), getAbsoluteTop("partner-with-us"));
-      const aboutTop = Math.min(getAbsoluteTop("about-us"), getAbsoluteTop("why-we-started"));
+      const partnersTop = getElementTop("partners", "partner-with-us");
+      const aboutTop = getElementTop("about-us", "why-we-started");
+      const remotewardTop = getElementTop("how-it-works", "remoteward");
 
-      if (scrollPos >= faqTop) {
-        setRawActiveSection("faq");
-      } else if (scrollPos >= partnersTop) {
+      if (scrollPos >= partnersTop - 60) {
         setRawActiveSection("partners");
-      } else if (scrollPos >= aboutTop) {
+      } else if (scrollPos >= aboutTop - 60) {
         setRawActiveSection("about-us");
+      } else if (scrollPos >= remotewardTop - 80) {
+        setRawActiveSection("remoteward");
       } else {
         setRawActiveSection("home");
       }
@@ -220,21 +235,49 @@ export default function Navbar() {
 
     window.addEventListener("scroll", handleScroll, { passive: true });
     handleScroll();
-    return () => window.removeEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      if (manualTimerRef.current) clearTimeout(manualTimerRef.current);
+    };
   }, [pathname]);
 
   const handleNav = (id: string) => {
+    // Immediately set active state on click
+    setRawActiveSection(id);
+    isManualNavRef.current = true;
+    if (manualTimerRef.current) clearTimeout(manualTimerRef.current);
+    manualTimerRef.current = setTimeout(() => {
+      isManualNavRef.current = false;
+    }, 1200);
+
     if (pathname !== "/") {
-      router.push(id === "home" ? "/" : `/#${id}`);
+      if (id === "home") {
+        router.push("/");
+      } else if (id === "remoteward") {
+        router.push("/#how-it-works");
+      } else {
+        router.push(`/#${id}`);
+      }
       return;
     }
 
     if (id === "home") {
-      window.scrollTo({ top: 0, behavior: "smooth" });
+      const lenis = (window as any).__lenis;
+      if (lenis) {
+        lenis.scrollTo(0, { offset: 0, duration: 1.1 });
+      } else {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      }
     } else {
-      const el = document.getElementById(id);
+      const targetId = id === "remoteward" ? "how-it-works" : id;
+      const el = document.getElementById(targetId) || document.getElementById(id);
       if (el) {
-        el.scrollIntoView({ behavior: "smooth" });
+        const lenis = (window as any).__lenis;
+        if (lenis) {
+          lenis.scrollTo(el, { offset: -60, duration: 1.1 });
+        } else {
+          el.scrollIntoView({ behavior: "smooth" });
+        }
       }
     }
   };
@@ -250,20 +293,23 @@ export default function Navbar() {
     >
       <div className="flex items-center">
 
-        {/* ═══════ LEFT PAIR: HOME & ABOUT US ═══════ */}
+        {/* ═══════ LEFT PAIR: HOME & REMOTEWARD (FOR PATIENT) ═══════ */}
         <NavCircle
           id="home"
           label="Home"
+          scrollTo="#home"
           customIcon={<HomeNavIcon active={activeSection === "home"} />}
           active={activeSection === "home"}
           onClick={handleNav}
         />
         <PairBridge />
         <NavCircle
-          id="about-us"
-          label="About Us"
-          customIcon={<AboutNavIcon active={activeSection === "about-us"} />}
-          active={activeSection === "about-us"}
+          id="remoteward"
+          label="RemoteWard"
+          sublabel="For Patient"
+          scrollTo="#how-it-works"
+          customIcon={<RemoteWardNavIcon active={activeSection === "remoteward"} />}
+          active={activeSection === "remoteward"}
           onClick={handleNav}
         />
 
@@ -277,6 +323,7 @@ export default function Navbar() {
           rel="noopener noreferrer"
           className="relative z-10 rounded-full cursor-pointer group"
           aria-label="Download on Google Play"
+          title="Play Store"
           style={{
             width: 64,
             height: 64,
@@ -286,6 +333,10 @@ export default function Navbar() {
           whileHover={{ scale: 1.1 }}
           whileTap={{ scale: 0.95 }}
         >
+          {/* Floating tooltip */}
+          <span className="absolute -top-11 left-1/2 -translate-x-1/2 px-2.5 py-1 bg-[#1E2526] text-white text-[11px] font-medium rounded-lg shadow-xl pointer-events-none opacity-0 group-hover:opacity-100 transition-all duration-200 whitespace-nowrap border border-white/10 -translate-y-1 group-hover:translate-y-0 z-30">
+            Play Store
+          </span>
           <div
             className="w-full h-full rounded-full flex items-center justify-center transition-all duration-300 group-hover:bg-[#283234] group-hover:shadow-[0_0_18px_rgba(66,133,244,0.4)]"
             style={{ backgroundColor: "#323C3E" }}
@@ -311,20 +362,23 @@ export default function Navbar() {
         {/* ─── pinch → right ─── */}
         <PinchBridge />
 
-        {/* ═══════ RIGHT PAIR: PARTNERS & FAQ ═══════ */}
+        {/* ═══════ RIGHT PAIR: PARTNERS (FOR HEALTHCARE ORGANIZATIONS) & ABOUT US ═══════ */}
         <NavCircle
           id="partners"
           label="Partners"
+          sublabel="For Healthcare Organizations"
+          scrollTo="#partners"
           Icon={Handshake}
           active={activeSection === "partners"}
           onClick={handleNav}
         />
         <PairBridge />
         <NavCircle
-          id="faq"
-          label="FAQ"
-          Icon={HelpCircle}
-          active={activeSection === "faq"}
+          id="about-us"
+          label="About Us"
+          scrollTo="#about-us"
+          Icon={Info}
+          active={activeSection === "about-us"}
           onClick={handleNav}
         />
 

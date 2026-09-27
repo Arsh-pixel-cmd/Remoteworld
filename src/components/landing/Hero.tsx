@@ -21,10 +21,11 @@ export default function Hero() {
   // Authentic application flow illustrations (hospital building photo removed completely)
   const heroImages = [
     "/homepageScreens/flow1.jpg",
-    "/homepageScreens/flow2.png",
+    "/homepageScreens/flow2.jpg",
     "/homepageScreens/flow3.png",
+    "/homepageScreens/flow4.jpg",
     "/homepageScreens/flow4.png",
-    "/homepageScreens/flow6.jpg",
+    "/homepageScreens/flow6.png",
   ];
 
   const [currentSlide, setCurrentSlide] = useState(0);
