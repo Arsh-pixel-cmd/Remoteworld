@@ -8,9 +8,11 @@ import StaggerContainer, { staggerChild } from "../ui/StaggerContainer";
 import AnimatedSection from "../ui/AnimatedSection";
 import Logo from "../ui/Logo";
 import CareerModal from "../ui/CareerModal";
+import FAQModal from "../ui/FAQModal";
 
 export default function Footer() {
   const [isCareerOpen, setIsCareerOpen] = useState(false);
+  const [isFAQOpen, setIsFAQOpen] = useState(false);
   return (
     <footer className="bg-ink text-white py-14 sm:py-16 border-t-8 border-brand overflow-hidden">
       <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
@@ -213,9 +215,13 @@ export default function Footer() {
                 </button>
               </li>
               <li>
-                <Link href="/#faq" className="text-surface-300 hover:text-brand hover:translate-x-1 transition-all duration-300 inline-block text-sm sm:text-base">
+                <button
+                  type="button"
+                  onClick={() => setIsFAQOpen(true)}
+                  className="text-surface-300 hover:text-brand hover:translate-x-1 transition-all duration-300 inline-block text-sm sm:text-base cursor-pointer text-left"
+                >
                   FAQ
-                </Link>
+                </button>
               </li>
               <li>
                 <Link href="/privacy-policy" className="text-surface-300 hover:text-brand hover:translate-x-1 transition-all duration-300 inline-block text-sm sm:text-base">
@@ -242,6 +248,7 @@ export default function Footer() {
 
       {/* Careers Application Modal */}
       <CareerModal isOpen={isCareerOpen} onClose={() => setIsCareerOpen(false)} />
+      <FAQModal isOpen={isFAQOpen} onClose={() => setIsFAQOpen(false)} />
     </footer>
   );
 }

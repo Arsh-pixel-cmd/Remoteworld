@@ -13,7 +13,6 @@ const StorySection = dynamic(() => import("@/components/landing/StorySection"));
 const Download = dynamic(() => import("@/components/landing/Download"));
 const PartnerForm = dynamic(() => import("@/components/landing/PartnerForm"));
 const ContactUs = dynamic(() => import("@/components/landing/ContactUs"));
-const FAQ = dynamic(() => import("@/components/landing/FAQ"));
 const Footer = dynamic(() => import("@/components/layout/Footer"));
 
 export default function Home() {
@@ -31,7 +30,6 @@ export default function Home() {
           <Download />
           <PartnerForm />
           <ContactUs />
-          <FAQ />
         </main>
         <Footer />
       </SmoothScroll>

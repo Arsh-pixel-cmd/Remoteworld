@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Building2, MapPin, User, Mail, Phone, MessageSquare, Send, CheckCircle2, Loader2, Hospital, X, Handshake, Briefcase } from "lucide-react";
 import AnimatedSection from "../ui/AnimatedSection";
@@ -38,35 +38,33 @@ export default function PartnerForm() {
   const [status, setStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
   const [errorMessage, setErrorMessage] = useState("");
 
-  // Lock body scroll when modal is open
+  const scrollPosRef = useRef(0);
+  const hasOpenedRef = useRef(false);
+
+  // Manage Lenis and preserve page scroll position accurately
   useEffect(() => {
     if (isOpen) {
-      const scrollY = window.scrollY;
-      document.documentElement.style.overflow = "hidden";
-      document.body.style.overflow = "hidden";
-      document.body.style.position = "fixed";
-      document.body.style.top = `-${scrollY}px`;
-      document.body.style.left = "0";
-      document.body.style.right = "0";
-    } else {
-      const scrollY = document.body.style.top;
-      document.documentElement.style.overflow = "";
-      document.body.style.overflow = "";
-      document.body.style.position = "";
-      document.body.style.top = "";
-      document.body.style.left = "";
-      document.body.style.right = "";
-      if (scrollY) {
-        window.scrollTo(0, parseInt(scrollY || "0") * -1);
+      hasOpenedRef.current = true;
+      // Capture the exact scroll position before opening
+      scrollPosRef.current = window.__lenis?.scroll ?? window.scrollY;
+      window.__lenis?.stop();
+    } else if (hasOpenedRef.current) {
+      // Resume Lenis and restore exact scroll position
+      window.__lenis?.start();
+      const targetY = scrollPosRef.current;
+      if (window.__lenis) {
+        window.__lenis.scrollTo(targetY, { immediate: true });
       }
+      window.scrollTo(0, targetY);
+      requestAnimationFrame(() => {
+        if (window.__lenis) {
+          window.__lenis.scrollTo(targetY, { immediate: true });
+        }
+        window.scrollTo(0, targetY);
+      });
     }
     return () => {
-      document.documentElement.style.overflow = "";
-      document.body.style.overflow = "";
-      document.body.style.position = "";
-      document.body.style.top = "";
-      document.body.style.left = "";
-      document.body.style.right = "";
+      window.__lenis?.start();
     };
   }, [isOpen]);
 
