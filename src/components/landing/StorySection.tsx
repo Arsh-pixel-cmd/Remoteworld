@@ -40,7 +40,7 @@ export default function StorySection() {
       stepIconColor: "text-brand",
       stepBg: "bg-brand/10",
       accentBorder: "border-brand/30",
-      pillBg: "bg-teal-500/10 text-teal-700 border-teal-300",
+      pillBg: "bg-brand/10 text-brand border-brand/30",
       visual: (
         <div className="bg-white rounded-3xl p-5 sm:p-6 shadow-xl border border-surface-100 max-w-sm w-full mx-auto">
           <div className="flex items-center space-x-4 mb-4 sm:mb-5">
@@ -57,7 +57,7 @@ export default function StorySection() {
               <span className="text-2xl sm:text-3xl font-black text-ink">₹5,00,000</span>
               <span className="text-[10px] sm:text-xs text-ink-muted block mt-0.5">PMJAY Balance Available</span>
             </div>
-            <span className="text-xs bg-accent-alt/10 text-accent-alt px-3 py-1.5 rounded-lg font-bold flex items-center gap-1">
+            <span className="text-xs bg-brand/10 text-brand px-3 py-1.5 rounded-lg font-bold flex items-center gap-1">
               <Sparkles className="w-3 h-3" />
               Active
             </span>
@@ -98,7 +98,7 @@ export default function StorySection() {
             </div>
             <div className="bg-surface-50 p-3 rounded-xl border border-surface-100 flex items-center justify-between">
               <span className="text-xs text-ink-muted">Estimated Arrival</span>
-              <span className="text-xs bg-accent-alt/10 text-accent-alt px-2.5 py-1 rounded-lg font-bold">~8 mins</span>
+              <span className="text-xs bg-brand/10 text-brand px-2.5 py-1 rounded-lg font-bold">~8 mins</span>
             </div>
           </div>
         </div>
@@ -140,7 +140,7 @@ export default function StorySection() {
               <span className="text-2xl sm:text-3xl font-black text-alert">A+</span>
               <span className="text-[10px] sm:text-xs text-ink-muted block mt-0.5">Compatible Units</span>
             </div>
-            <span className="text-xs bg-accent-alt/10 text-accent-alt px-3 py-1.5 rounded-lg font-bold flex items-center gap-1">
+            <span className="text-xs bg-brand/10 text-brand px-3 py-1.5 rounded-lg font-bold flex items-center gap-1">
               <Sparkles className="w-3 h-3" />
               3 Banks Nearby
             </span>
@@ -169,8 +169,8 @@ export default function StorySection() {
               </div>
               <span className="font-bold text-sm sm:text-base text-ink">Digital OPD</span>
             </div>
-            <span className="text-[10px] bg-accent/20 text-accent-alt px-2.5 py-0.5 rounded-full font-bold flex items-center gap-1">
-              <span className="w-1.5 h-1.5 rounded-full bg-accent-alt animate-ping" />
+            <span className="text-[10px] bg-brand/15 text-brand px-2.5 py-0.5 rounded-full font-bold flex items-center gap-1">
+              <span className="w-1.5 h-1.5 rounded-full bg-brand animate-ping" />
               Connected
             </span>
           </div>
@@ -238,30 +238,30 @@ export default function StorySection() {
       description:
         "Subscribe to participating healthcare facilities and access their available digital healthcare services and updates.",
       stepIcon: Building2,
-      stepIconColor: "text-accent-alt",
-      stepBg: "bg-accent/15",
-      accentBorder: "border-accent/30",
-      pillBg: "bg-emerald-500/10 text-emerald-700 border-emerald-300",
+      stepIconColor: "text-brand",
+      stepBg: "bg-brand/10",
+      accentBorder: "border-brand/30",
+      pillBg: "bg-brand/10 text-brand border-brand/30",
       visual: (
         <div className="bg-white rounded-3xl p-5 sm:p-6 shadow-xl border border-surface-100 max-w-sm w-full mx-auto">
           <div className="flex items-center justify-between border-b border-surface-100 pb-3.5 sm:pb-4 mb-4">
             <div className="flex items-center space-x-3">
-              <div className="w-10 h-10 flex-shrink-0 rounded-xl bg-accent/10 flex items-center justify-center">
-                <Building2 className="w-4 h-4 text-accent-alt" />
+              <div className="w-10 h-10 flex-shrink-0 rounded-xl bg-brand/10 flex items-center justify-center">
+                <Building2 className="w-4 h-4 text-brand" />
               </div>
               <span className="font-bold text-sm sm:text-base text-ink">Healthcare Facilities</span>
             </div>
-            <span className="text-[10px] bg-accent/20 text-accent-alt px-2.5 py-0.5 rounded-full font-bold flex items-center gap-1">
-              <span className="w-1.5 h-1.5 rounded-full bg-accent-alt animate-ping" />
+            <span className="text-[10px] bg-brand/15 text-brand px-2.5 py-0.5 rounded-full font-bold flex items-center gap-1">
+              <span className="w-1.5 h-1.5 rounded-full bg-brand animate-ping" />
               Live
             </span>
           </div>
           <div className="space-y-3">
             <div className="flex items-center justify-between text-xs sm:text-sm">
               <span className="text-ink-muted">Subscribed Facilities</span>
-              <span className="font-semibold text-accent-alt">Active Updates</span>
+              <span className="font-semibold text-brand">Active Updates</span>
             </div>
-            <div className="bg-accent/5 p-3 rounded-xl border border-accent/10 text-xs text-accent-alt font-medium text-center">
+            <div className="bg-brand/5 p-3 rounded-xl border border-brand/15 text-xs text-brand font-medium text-center">
               Access digital services from your subscribed facilities.
             </div>
           </div>
