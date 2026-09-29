@@ -13,10 +13,10 @@ export default function Logo({
   return (
     <Link href="/" className={`flex items-center group ${className}`}>
       <Image
-        src="/remoteWard.svg"
+        src="/logo.svg"
         alt="RemoteWard Logo"
-        width={226}
-        height={96}
+        width={142}
+        height={142}
         priority
         className={`${imgClassName} object-contain transition-transform duration-300 group-hover:scale-95`}
       />

@@ -34,7 +34,7 @@ export const metadata: Metadata = {
     siteName: "RemoteWard",
     images: [
       {
-        url: "/logo.png",
+        url: "/logo.svg",
         width: 512,
         height: 512,
         alt: "RemoteWard Logo",
@@ -48,11 +48,11 @@ export const metadata: Metadata = {
     title: "RemoteWard | Healthcare, held together.",
     description:
       "Stay connected to your care team and family. RemoteWard brings peace of mind, routine management, and instant support right to your fingertips.",
-    images: ["/logo.png"],
+    images: ["/logo.svg"],
   },
   icons: {
     icon: "/favicon.ico",
-    apple: "/logo.png",
+    apple: "/logo.svg",
   },
   robots: {
     index: true,
