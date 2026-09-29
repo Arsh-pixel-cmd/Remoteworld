@@ -142,6 +142,17 @@ export default function PartnerForm() {
             <p className="text-lg sm:text-xl font-semibold text-brand mb-4">
               Bring Your Healthcare Closer to Patients.
             </p>
+            <div className="flex items-center justify-center my-6 sm:my-8 px-2">
+              <Image
+                src="/partnerBg.svg"
+                alt="Healthcare Organizations"
+                width={400}
+                height={400}
+                loading="lazy"
+                className="w-full max-w-[300px] xs:max-w-[340px] sm:max-w-md md:max-w-lg lg:max-w-xl h-auto object-contain"
+                sizes="(max-width: 640px) 90vw, (max-width: 1024px) 500px, 600px"
+              />
+            </div>
             <p className="text-base sm:text-lg text-ink-muted max-w-2xl mx-auto mb-8 sm:mb-10 leading-relaxed">
               Whether you are a hospital, clinic, diagnostic centre, or other healthcare organization, let&apos;s explore how RemoteWard can help you build a stronger digital connection with the people you serve.
             </p>

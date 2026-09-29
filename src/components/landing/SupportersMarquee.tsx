@@ -40,22 +40,10 @@ const SUPPORTER_LOGOS = [
     height: 41,
   },
   {
-    name: "Indian Oil",
-    src: "/GovernmentSVG/Indiaoil.svg",
-    width: 55,
-    height: 28,
-  },
-  {
     name: "IISc Bangalore",
     src: "/GovernmentSVG/ISCBanglore.svg",
     width: 29,
     height: 28,
-  },
-  {
-    name: "Sickle Cell Mission",
-    src: "/GovernmentSVG/Sicklecell.svg",
-    width: 43,
-    height: 42,
   },
   {
     name: "Startup India",
