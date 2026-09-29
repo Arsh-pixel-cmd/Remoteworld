@@ -95,12 +95,8 @@ const SUPPORTER_LOGOS = [
   },
 ];
 
-// Repeat logos multiple times to ensure seamless infinite looping on all screen sizes including 4K
+// Repeat logos to ensure seamless infinite looping on all screen sizes including 4K
 const REPEATED_LOGOS = [
-  ...SUPPORTER_LOGOS,
-  ...SUPPORTER_LOGOS,
-  ...SUPPORTER_LOGOS,
-  ...SUPPORTER_LOGOS,
   ...SUPPORTER_LOGOS,
   ...SUPPORTER_LOGOS,
 ];
