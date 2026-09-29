@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
-import { Handshake, Info, type LucideIcon } from "lucide-react";
+import { Handshake, Mail, type LucideIcon } from "lucide-react";
 import { motion } from "framer-motion";
 import { usePathname, useRouter } from "next/navigation";
 
@@ -219,13 +219,13 @@ export default function Navbar() {
       };
 
       const partnersTop = getElementTop("partners", "partner-with-us");
-      const aboutTop = getElementTop("about-us", "why-we-started");
+      const contactTop = getElementTop("contact", "contact-us");
       const remotewardTop = getElementTop("how-it-works", "remoteward");
 
-      if (scrollPos >= partnersTop - 60) {
+      if (scrollPos >= contactTop - 60) {
+        setRawActiveSection("contact-us");
+      } else if (scrollPos >= partnersTop - 60) {
         setRawActiveSection("partners");
-      } else if (scrollPos >= aboutTop - 60) {
-        setRawActiveSection("about-us");
       } else if (scrollPos >= remotewardTop - 80) {
         setRawActiveSection("remoteward");
       } else {
@@ -269,7 +269,7 @@ export default function Navbar() {
         window.scrollTo({ top: 0, behavior: "smooth" });
       }
     } else {
-      const targetId = id === "remoteward" ? "how-it-works" : id;
+      const targetId = id === "remoteward" ? "how-it-works" : id === "contact-us" ? "contact" : id;
       const el = document.getElementById(targetId) || document.getElementById(id);
       if (el) {
         const lenis = window.__lenis;
@@ -374,11 +374,11 @@ export default function Navbar() {
         />
         <PairBridge />
         <NavCircle
-          id="about-us"
-          label="About Us"
-          scrollTo="#about-us"
-          Icon={Info}
-          active={activeSection === "about-us"}
+          id="contact-us"
+          label="Contact Us"
+          scrollTo="#contact"
+          Icon={Mail}
+          active={activeSection === "contact-us"}
           onClick={handleNav}
         />
 

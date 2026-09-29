@@ -16,13 +16,13 @@ export default function Footer() {
   return (
     <footer className="bg-ink text-white py-14 sm:py-16 border-t-8 border-brand overflow-hidden">
       <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
-        
+
         {/* Footer grid: 2 columns on mobile/tablet, 12 cols on desktop */}
         <StaggerContainer className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-12 mb-12" staggerDelay={0.1}>
-          
+
           {/* Column 1: Logo & Company Address Details (Full width on mobile, 6 cols on lg) */}
-          <motion.div 
-            variants={staggerChild} 
+          <motion.div
+            variants={staggerChild}
             className="md:col-span-2 lg:col-span-6 flex flex-col items-start text-left"
           >
             <div className="mb-4 inline-block transition-transform duration-300 hover:scale-95">
@@ -32,7 +32,7 @@ export default function Footer() {
             <div className="space-y-3.5 text-surface-300 text-sm sm:text-base max-w-lg">
               <div>
                 <h5 className="font-bold text-surface-100 text-sm uppercase tracking-wider mb-1.5">
-                  Address :
+                  Regd Office :
                 </h5>
                 <p className="leading-relaxed text-surface-200">
                   Yenepoya (Deemed to be University) Deralakatte,<br />
@@ -66,7 +66,7 @@ export default function Footer() {
               </div>
             </div>
           </motion.div>
-          
+
           {/* Column 2: Follow Us (1 col on tablet, 3 cols on lg) */}
           <motion.div variants={staggerChild} className="col-span-1 lg:col-span-3 text-left">
             <h4 className="font-bold text-lg mb-5 text-surface-50">Follow Us</h4>
@@ -185,7 +185,7 @@ export default function Footer() {
               </li>
             </ul>
           </motion.div>
-          
+
           {/* Column 3: Explore (1 col on tablet, 3 cols on lg) */}
           <motion.div variants={staggerChild} className="col-span-1 lg:col-span-3 text-left">
             <h4 className="font-bold text-lg mb-5 text-surface-50">Explore</h4>
@@ -243,7 +243,7 @@ export default function Footer() {
             </div>
           </div>
         </AnimatedSection>
-        
+
       </div>
 
       {/* Careers Application Modal */}

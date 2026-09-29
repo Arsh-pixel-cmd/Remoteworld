@@ -10,6 +10,30 @@ const SUPPORTER_LOGOS = [
     height: 41,
   },
   {
+    name: "Alcare",
+    src: "/GovernmentSVG/aic.jpeg",
+    width: 41,
+    height: 41,
+  },
+  {
+    name: "Ayushmanbharat",
+    src: "/GovernmentSVG/ayushmanbharat.jpeg",
+    width: 41,
+    height: 41,
+  },
+  {
+    name: "birac",
+    src: "/GovernmentSVG/birac.jpeg",
+    width: 41,
+    height: 41,
+  },
+  {
+    name: "duns",
+    src: "/GovernmentSVG/duns.jpeg",
+    width: 41,
+    height: 41,
+  },
+  {
     name: "National Health Authority",
     src: "/GovernmentSVG/NHA.svg",
     width: 55,
@@ -32,6 +56,42 @@ const SUPPORTER_LOGOS = [
     src: "/GovernmentSVG/Sicklecell.svg",
     width: 43,
     height: 42,
+  },
+  {
+    name: "Startup India",
+    src: "/GovernmentSVG/startup.jpeg",
+    width: 41,
+    height: 41,
+  },
+  {
+    name: "STPI",
+    src: "/GovernmentSVG/stpi.jpeg",
+    width: 41,
+    height: 41,
+  },
+  {
+    name: "TISS",
+    src: "/GovernmentSVG/tiss.jpeg",
+    width: 41,
+    height: 41,
+  },
+  {
+    name: "Wadhwani Foundation",
+    src: "/GovernmentSVG/wadhwani.jpeg",
+    width: 41,
+    height: 41,
+  },
+  {
+    name: "Yenepoya",
+    src: "/GovernmentSVG/yenepoya.jpeg",
+    width: 41,
+    height: 41,
+  },
+  {
+    name: "Yenepoya University",
+    src: "/GovernmentSVG/yenepoyauniversity.jpeg",
+    width: 41,
+    height: 41,
   },
 ];
 

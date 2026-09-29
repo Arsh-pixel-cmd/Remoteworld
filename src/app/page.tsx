@@ -25,10 +25,11 @@ export default function Home() {
           <SupportersMarquee />
           <ProblemSection />
           <HowItWorks />
-          <WhyWeStarted />
+
           <StorySection />
           <Download />
           <PartnerForm />
+          <WhyWeStarted />
           <ContactUs />
         </main>
         <Footer />
