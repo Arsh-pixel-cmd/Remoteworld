@@ -37,6 +37,7 @@ export default function StorySection() {
       description:
         "Know what healthcare benefits are available to you. Check your PMJAY balance directly through RemoteWard.",
       stepIcon: ShieldCheck,
+      logoSrc: "/storySectionLogo/wallet.svg",
       stepIconColor: "text-brand",
       stepBg: "bg-brand/10",
       accentBorder: "border-brand/30",
@@ -73,6 +74,7 @@ export default function StorySection() {
       description:
         "When urgent medical transportation is needed, find nearby ambulance services through RemoteWard.",
       stepIcon: Siren,
+      logoSrc: "/storySectionLogo/Ambulance.svg",
       stepIconColor: "text-alert",
       stepBg: "bg-alert/10",
       accentBorder: "border-alert/30",
@@ -112,6 +114,7 @@ export default function StorySection() {
       description:
         "Access Blood Bank services to help find blood support for you or your family when you need it.",
       stepIcon: Droplets,
+      logoSrc: "/storySectionLogo/Blood bank.svg",
       stepIconColor: "text-alert",
       stepBg: "bg-alert/10",
       accentBorder: "border-alert/20",
@@ -238,6 +241,7 @@ export default function StorySection() {
       description:
         "Subscribe to participating healthcare facilities and access their available digital healthcare services and updates.",
       stepIcon: Building2,
+      logoSrc: "/storySectionLogo/CONNECT FACILITY.svg",
       stepIconColor: "text-brand",
       stepBg: "bg-brand/10",
       accentBorder: "border-brand/30",
@@ -338,7 +342,18 @@ export default function StorySection() {
                       transition={{ type: "spring", stiffness: 350, damping: 30 }}
                     />
                   )}
-                  <StepIcon className={`w-3.5 h-3.5 ${isActive ? step.stepIconColor : "text-ink-muted"}`} />
+                  {step.logoSrc ? (
+                    <Image
+                      src={step.logoSrc}
+                      alt={step.badge || step.timeLabel}
+                      width={14}
+                      height={14}
+                      className="w-3.5 h-3.5 object-contain"
+                      draggable={false}
+                    />
+                  ) : (
+                    <StepIcon className={`w-3.5 h-3.5 ${isActive ? step.stepIconColor : "text-ink-muted"}`} />
+                  )}
                   <span className="truncate">{step.timeLabel}</span>
                 </button>
               );
@@ -365,7 +380,18 @@ export default function StorySection() {
                   <div
                     className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold border ${currentStep.stepBg} ${currentStep.stepIconColor} ${currentStep.accentBorder}`}
                   >
-                    <currentStep.stepIcon className="w-3.5 h-3.5" />
+                    {currentStep.logoSrc ? (
+                      <Image
+                        src={currentStep.logoSrc}
+                        alt={currentStep.badge || currentStep.timeLabel}
+                        width={14}
+                        height={14}
+                        className="w-3.5 h-3.5 object-contain"
+                        draggable={false}
+                      />
+                    ) : (
+                      <currentStep.stepIcon className="w-3.5 h-3.5" />
+                    )}
                     <span>{currentStep.badge || currentStep.time}</span>
                   </div>
                   <span className="text-[11px] font-bold text-ink-muted uppercase tracking-wider">
@@ -450,7 +476,18 @@ export default function StorySection() {
 
                   {/* Timeline node icon */}
                   <div className="absolute left-1/2 -translate-x-1/2 top-4 w-10 h-10 rounded-full bg-white border-2 border-surface-200 flex items-center justify-center shadow-md">
-                    <StepIcon className={`w-5 h-5 ${step.stepIconColor}`} />
+                    {step.logoSrc ? (
+                      <Image
+                        src={step.logoSrc}
+                        alt={step.badge || step.timeLabel}
+                        width={20}
+                        height={20}
+                        className="w-5 h-5 object-contain"
+                        draggable={false}
+                      />
+                    ) : (
+                      <StepIcon className={`w-5 h-5 ${step.stepIconColor}`} />
+                    )}
                   </div>
 
                   <div className="grid grid-cols-2 gap-16 items-center">
@@ -461,7 +498,18 @@ export default function StorySection() {
                         <div
                           className={`inline-flex items-center space-x-2 px-3 py-1 rounded-full text-xs font-bold border ${step.stepBg} ${step.stepIconColor} ${step.accentBorder} mb-4`}
                         >
-                          <StepIcon className="w-3.5 h-3.5" />
+                          {step.logoSrc ? (
+                            <Image
+                              src={step.logoSrc}
+                              alt={step.badge || step.timeLabel}
+                              width={14}
+                              height={14}
+                              className="w-3.5 h-3.5 object-contain"
+                              draggable={false}
+                            />
+                          ) : (
+                            <StepIcon className="w-3.5 h-3.5" />
+                          )}
                           <span>{step.badge || step.time}</span>
                         </div>
                         <h4 className="text-3xl font-bold text-ink mb-4">{step.title}</h4>

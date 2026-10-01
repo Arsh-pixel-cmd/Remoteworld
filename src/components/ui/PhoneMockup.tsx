@@ -10,7 +10,6 @@ const screens = [
   { src: "/screens/flow-3.jpg", alt: "Home Dashboard" },
   { src: "/screens/flow-4.jpg", alt: "Link Health Records" },
   { src: "/screens/flow-5.jpg", alt: "ABHA Profile" },
-  { src: "/screens/flow-6.jpg", alt: "SCD Care Module" },
   { src: "/screens/flow-7.jpg", alt: "Medications Tracker" },
   { src: "/screens/flow-8.jpg", alt: "Meditation & Wellness" },
 ];
@@ -144,11 +143,10 @@ export default function PhoneMockup() {
               key={idx}
               onClick={() => goToSlide(idx)}
               aria-label={`Go to screen ${idx + 1}`}
-              className={`rounded-full transition-all duration-300 ${
-                idx === currentIndex
+              className={`rounded-full transition-all duration-300 ${idx === currentIndex
                   ? "w-5 h-2 bg-brand shadow-md"
                   : "w-2 h-2 bg-white/70 hover:bg-white backdrop-blur-sm"
-              }`}
+                }`}
             />
           ))}
         </div>

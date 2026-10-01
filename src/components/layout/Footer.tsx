@@ -31,6 +31,9 @@ export default function Footer() {
 
             <div className="space-y-3.5 text-surface-300 text-sm sm:text-base max-w-lg">
               <div>
+                <h4 className="font-bold text-white text-base sm:text-lg mb-2">
+                  RemoteWard Care Private Limited
+                </h4>
                 <h5 className="font-bold text-surface-100 text-sm uppercase tracking-wider mb-1.5">
                   Regd Office :
                 </h5>

@@ -21,11 +21,13 @@ export default function Hero() {
   // Authentic application flow illustrations (cache-busted to ensure newly added images load immediately)
   const heroImages = [
     "/homepageScreens/flow1.jpg?v=2",
-    "/homepageScreens/flow2.jpg?v=2",
+    "/homepageScreens/flow2.png?v=2",
     "/homepageScreens/flow3.png?v=2",
-    "/homepageScreens/flow4.jpg?v=2",
-    "/homepageScreens/flow5.png?v=2",
+    "/homepageScreens/flow4.png?v=2",
+    "/homepageScreens/flow5.jpg?v=2",
     "/homepageScreens/flow6.png?v=2",
+    "/homepageScreens/flow7.png?v=2",
+    "/homepageScreens/flow8.png?v=2",
   ];
 
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -47,7 +49,7 @@ export default function Hero() {
         initial={{ opacity: 0, y: -16 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, ease: [0.25, 0.4, 0.25, 1] }}
-        className="absolute top-2 left-16 sm:top-4 sm:left-8 md:top-5 md:left-10 lg:top-6 lg:left-12 xl:top-7 xl:left-10 2xl:left-12 z-30 pointer-events-auto"
+        className="absolute top-2 left-4 sm:top-4 sm:left-8 md:top-5 md:left-10 lg:top-6 lg:left-12 xl:top-7 xl:left-10 2xl:left-12 z-30 pointer-events-auto"
       >
         <Logo imgClassName="h-14 sm:h-16 md:h-18 lg:h-24 xl:h-28 2xl:h-32 w-auto" />
       </motion.div>

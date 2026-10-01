@@ -72,19 +72,34 @@ export default function Download() {
               <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-lg  flex items-center justify-center mr-3 flex-shrink-0">
                 <CheckCircle2 className="w-4 h-4 sm:w-5 sm:h-5 text-[#FBDB9F]" />
               </div>
-              National Health Authority Approved — Built for India&apos;s digital healthcare ecosystem.
+              <span>
+                <span className="font-semibold whitespace-nowrap">
+                  National Health Authority Approved
+                </span>{" "}
+                — Built for India&apos;s digital healthcare ecosystem.
+              </span>
             </motion.li>
             <motion.li variants={staggerChildLeft} className="flex items-center">
-              <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-lg bg-[#fff]/20 flex items-center justify-center mr-3 flex-shrink-0">
-                <CheckCircle2 className="w-4 h-4 sm:w-5 sm:h-5 text-[#0B6A33]" />
+              <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-lg  flex items-center justify-center mr-3 flex-shrink-0">
+                <CheckCircle2 className="w-4 h-4 sm:w-5 sm:h-5 text-[#FBDB9F]" />
               </div>
-              ABDM Compliant — Designed to support secure, connected digital health services.
+              <span>
+                <span className="font-semibold whitespace-nowrap">
+                  ABDM Compliant
+                </span>{" "}
+                — Designed to support secure, connected digital health services.
+              </span>
             </motion.li>
             <motion.li variants={staggerChildLeft} className="flex items-center">
-              <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-lg bg-[#087F5B]/20 flex items-center justify-center mr-3 flex-shrink-0">
-                <CheckCircle2 className="w-4 h-4 sm:w-5 sm:h-5 text-[#0B6A33]" />
+              <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-lg  flex items-center justify-center mr-3 flex-shrink-0">
+                <CheckCircle2 className="w-4 h-4 sm:w-5 sm:h-5 text-[#FBDB9F]" />
               </div>
-              Security Audited & FT Approved — Built and tested for a safe, reliable healthcare experience.
+              <span>
+                <span className="font-semibold whitespace-nowrap">
+                  Security Audited &amp; FT Approved
+                </span>{" "}
+                — Built and tested for a safe, reliable healthcare experience.
+              </span>
             </motion.li>
           </StaggerContainer>
 

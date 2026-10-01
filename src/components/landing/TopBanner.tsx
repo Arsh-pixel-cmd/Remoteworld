@@ -10,10 +10,8 @@ interface TopBannerProps {
 
 export default function TopBanner({
   announcements = [
-    "Produced by Kapil Singh Rawat ",
-    "And directed by Sukhdev ",
-    "Devloped by Piyush jha  ",
-    "Real-time routine management & instant support",
+    "NHA Approved",
+    "ABDM-Integrated Digital Health for Families & Elderly Care",
   ],
   className = "",
 }: TopBannerProps) {

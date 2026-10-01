@@ -42,8 +42,16 @@ export default function HowItWorks() {
       textColor: "text-support-blue",
       visual: (
         <div className="w-24 h-24 sm:w-28 sm:h-28 rounded-3xl bg-gradient-to-br from-support-blue/20 to-support-blue/5 border border-support-blue/25 flex flex-col items-center justify-center p-3 shadow-inner relative">
-          <div className="w-12 h-12 rounded-2xl bg-support-blue text-white flex items-center justify-center shadow-md mb-1.5">
-            <UserPlus className="w-6 h-6" />
+          <div className="w-12 h-12 rounded-2xl bg-white text-white flex items-center justify-center shadow-md mb-1.5">
+            <Image
+              src="/logos/Addhar icon.svg"
+              alt="Explore Services"
+              width={32}
+              height={32}
+              className="w-7 h-7 object-contain rounded-md"
+              draggable={false}
+              loading="lazy"
+            />
           </div>
           <span className="text-[10px] font-black uppercase text-support-blue tracking-wider">Aadhar Link</span>
         </div>
@@ -82,7 +90,7 @@ export default function HowItWorks() {
         <div className="w-24 h-24 sm:w-28 sm:h-28 rounded-3xl bg-[#E39FF6] to-accent/5 border border-accent/30 flex flex-col items-center justify-center p-3 shadow-inner relative">
           <div className="w-12 h-12 rounded-2xl bg-[#ffff] text-white flex items-center justify-center shadow-md mb-1.5 overflow-hidden p-2">
             <Image
-              src="/logos/Group1.svg"
+              src="/logos/explore.svg"
               alt="Explore Services"
               width={32}
               height={32}
@@ -327,7 +335,7 @@ export default function HowItWorks() {
                       {step.stepLabel}
                     </span>
                     <div className="flex items-center gap-1.5 text-xs text-surface-200 group-hover:text-white transition-colors">
-                      <span>{step.num} of 06</span>
+                      <span>{step.num} of 05</span>
                       <ArrowRight className="w-4 h-4 transition-transform duration-200 group-hover:translate-x-1" />
                     </div>
                   </button>
