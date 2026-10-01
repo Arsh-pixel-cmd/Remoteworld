@@ -100,14 +100,22 @@ export async function POST(request: Request) {
     if (!apiKey) {
       console.warn("RESEND_API_KEY is not configured in environment variables.");
       return NextResponse.json(
-        { error: "Email dispatch service is currently unavailable. Please contact info@remoteward.com directly." },
+        { error: "Email dispatch service is currently unavailable. Please try again later." },
         { status: 503 }
       );
     }
 
     const resend = new Resend(apiKey);
-    const fromEmail = process.env.RESEND_FROM_EMAIL || "RemoteWard Partnerships <onboarding@resend.dev>";
-    const toEmail = process.env.PARTNERSHIP_RECIPIENT_EMAIL || "partnerships@remoteward.com";
+    const fromEmail = process.env.RESEND_FROM_EMAIL || "RemoteWard <onboarding@resend.dev>";
+    const toEmail = process.env.FORM_RECIPIENT_EMAIL;
+
+    if (!toEmail) {
+      console.warn("FORM_RECIPIENT_EMAIL is not configured in environment variables.");
+      return NextResponse.json(
+        { error: "Email dispatch service is currently unavailable. Please try again later." },
+        { status: 503 }
+      );
+    }
 
     // Sanitize user inputs before HTML interpolation
     const safeOrgName = escapeHtml(String(orgName).trim());

@@ -188,7 +188,7 @@ export default function PrivacyPolicyPage() {
                 </div>
                 <div className="flex items-center gap-2.5 text-sm text-ink-muted">
                   <Globe className="w-4 h-4 text-brand-dark" />
-                  <a href="http://www.remoteward.com" target="_blank" rel="noopener noreferrer" className="hover:text-brand underline">
+                  <a href="https://www.remoteward.com" target="_blank" rel="noopener noreferrer" className="hover:text-brand underline">
                     www.remoteward.com
                   </a>
                 </div>

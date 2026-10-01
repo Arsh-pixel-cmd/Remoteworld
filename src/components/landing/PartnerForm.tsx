@@ -130,9 +130,7 @@ export default function PartnerForm() {
       <section id="partners" className="scroll-mt-12 py-14 sm:py-20 lg:py-24 relative overflow-hidden bg-surface-50/50">
         {/* Fallback anchor for backward compatibility */}
         <div id="partner-with-us" className="sr-only" />
-        {/* Decorative blurry backgrounds */}
-        <div className="absolute top-1/4 -left-1/4 w-96 h-96 bg-brand/10 rounded-full blur-3xl pointer-events-none" />
-        <div className="absolute bottom-1/4 -right-1/4 w-96 h-96 bg-accent/10 rounded-full blur-3xl pointer-events-none" />
+
 
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <AnimatedSection className="text-center mb-8 sm:mb-12">

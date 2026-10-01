@@ -90,13 +90,24 @@ export async function POST(request: Request) {
     const safeWhyJoin = whyJoin ? escapeHtml(String(whyJoin).trim()) : "None provided";
 
     if (!apiKey) {
-      console.warn("RESEND_API_KEY is not configured. Simulating successful submission in development.");
-      return NextResponse.json({ success: true, message: "Application received (dev mode)" });
+      console.warn("RESEND_API_KEY is not configured in environment variables.");
+      return NextResponse.json(
+        { error: "Email dispatch service is currently unavailable. Please try again later." },
+        { status: 503 }
+      );
     }
 
     const resend = new Resend(apiKey);
-    const fromEmail = process.env.RESEND_FROM_EMAIL || "RemoteWard Careers <onboarding@resend.dev>";
-    const toEmail = process.env.CAREERS_RECIPIENT_EMAIL || process.env.PARTNERSHIP_RECIPIENT_EMAIL || "info@remoteward.com";
+    const fromEmail = process.env.RESEND_FROM_EMAIL || "RemoteWard <onboarding@resend.dev>";
+    const toEmail = process.env.FORM_RECIPIENT_EMAIL;
+
+    if (!toEmail) {
+      console.warn("FORM_RECIPIENT_EMAIL is not configured in environment variables.");
+      return NextResponse.json(
+        { error: "Email dispatch service is currently unavailable. Please try again later." },
+        { status: 503 }
+      );
+    }
 
     const { error } = await resend.emails.send({
       from: fromEmail,
@@ -148,7 +159,7 @@ export async function POST(request: Request) {
 
     if (error) {
       console.error("Resend error:", error);
-      return NextResponse.json({ error: "Failed to dispatch email. Please email info@remoteward.com directly." }, { status: 500 });
+      return NextResponse.json({ error: "Failed to dispatch email. Please try again later." }, { status: 500 });
     }
 
     return NextResponse.json({ success: true, message: "Application submitted successfully" });
