@@ -37,7 +37,7 @@ export default function StorySection() {
       description:
         "Know what healthcare benefits are available to you. Check your PMJAY balance directly through RemoteWard.",
       stepIcon: ShieldCheck,
-      logoSrc: "/storySectionLogo/wallet.svg",
+      logoSrc: "/storySectionlogo/wallet.svg",
       stepIconColor: "text-brand",
       stepBg: "bg-brand/10",
       accentBorder: "border-brand/30",
@@ -74,7 +74,7 @@ export default function StorySection() {
       description:
         "When urgent medical transportation is needed, find nearby ambulance services through RemoteWard.",
       stepIcon: Siren,
-      logoSrc: "/storySectionLogo/Ambulance.svg",
+      logoSrc: "/storySectionlogo/Ambulance.svg",
       stepIconColor: "text-alert",
       stepBg: "bg-alert/10",
       accentBorder: "border-alert/30",
@@ -114,7 +114,7 @@ export default function StorySection() {
       description:
         "Access Blood Bank services to help find blood support for you or your family when you need it.",
       stepIcon: Droplets,
-      logoSrc: "/storySectionLogo/Blood bank.svg",
+      logoSrc: "/storySectionlogo/Blood%20bank.svg",
       stepIconColor: "text-alert",
       stepBg: "bg-alert/10",
       accentBorder: "border-alert/20",
@@ -241,7 +241,7 @@ export default function StorySection() {
       description:
         "Subscribe to participating healthcare facilities and access their available digital healthcare services and updates.",
       stepIcon: Building2,
-      logoSrc: "/storySectionLogo/CONNECT FACILITY.svg",
+      logoSrc: "/storySectionlogo/CONNECT%20FACILITY.svg",
       stepIconColor: "text-brand",
       stepBg: "bg-brand/10",
       accentBorder: "border-brand/30",
