@@ -46,7 +46,15 @@ export default function StorySection() {
         <div className="bg-white rounded-3xl p-5 sm:p-6 shadow-xl border border-surface-100 max-w-sm w-full mx-auto">
           <div className="flex items-center space-x-4 mb-4 sm:mb-5">
             <div className="w-12 h-12 flex-shrink-0 rounded-2xl bg-brand/15 flex items-center justify-center">
-              <ShieldCheck className="w-6 h-6 text-brand" />
+              <Image
+                src="/storySectionlogo/wallet.svg"
+                alt="Blood Bank"
+                width={32}
+                height={32}
+                className="w-7 h-7 object-contain rounded-md"
+                draggable={false}
+                loading="lazy"
+              />
             </div>
             <div>
               <p className="text-xs text-ink-muted">PMJAY / Ayushman Card</p>
@@ -83,7 +91,15 @@ export default function StorySection() {
         <div className="bg-white rounded-3xl p-5 sm:p-6 shadow-xl border border-surface-100 max-w-sm w-full mx-auto">
           <div className="flex items-center space-x-4 mb-4 sm:mb-5">
             <div className="w-12 h-12 flex-shrink-0 rounded-2xl bg-alert/15 flex items-center justify-center">
-              <Siren className="w-6 h-6 text-alert" />
+              <Image
+                src="/storySectionlogo/Ambulance.svg"
+                alt="Blood Bank"
+                width={32}
+                height={32}
+                className="w-7 h-7 object-contain rounded-md"
+                draggable={false}
+                loading="lazy"
+              />
             </div>
             <div>
               <p className="text-xs text-ink-muted">Urgent Medical Transport</p>
@@ -124,7 +140,7 @@ export default function StorySection() {
           <div className="flex items-center space-x-4 mb-4 sm:mb-5">
             <div className="w-12 h-12 flex-shrink-0 rounded-2xl bg-alert/15 flex items-center justify-center overflow-hidden p-2">
               <Image
-                src="/logos/health.jpg"
+                src="/storySectionlogo/Blood%20bank.svg"
                 alt="Blood Bank"
                 width={32}
                 height={32}
@@ -251,7 +267,15 @@ export default function StorySection() {
           <div className="flex items-center justify-between border-b border-surface-100 pb-3.5 sm:pb-4 mb-4">
             <div className="flex items-center space-x-3">
               <div className="w-10 h-10 flex-shrink-0 rounded-xl bg-brand/10 flex items-center justify-center">
-                <Building2 className="w-4 h-4 text-brand" />
+                <Image
+                  src="/storySectionlogo/CONNECT%20FACILITY.svg"
+                  alt="Blood Bank"
+                  width={32}
+                  height={32}
+                  className="w-7 h-7 object-contain rounded-md"
+                  draggable={false}
+                  loading="lazy"
+                />
               </div>
               <span className="font-bold text-sm sm:text-base text-ink">Healthcare Facilities</span>
             </div>
