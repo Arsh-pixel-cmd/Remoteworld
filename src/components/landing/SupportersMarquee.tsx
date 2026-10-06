@@ -22,12 +22,6 @@ const SUPPORTER_LOGOS = [
     height: 177,
   },
   {
-    name: "duns",
-    src: "/GovernmentSVG/duns.jpeg",
-    width: 263,
-    height: 176,
-  },
-  {
     name: "IISc Bangalore",
     src: "/GovernmentSVG/ISCBanglore.svg",
     width: 245,

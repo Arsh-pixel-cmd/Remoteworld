@@ -22,11 +22,11 @@ export default function HowItWorks() {
       bgLight: "bg-brand/10",
       textColor: "text-brand",
       visual: (
-        <div className="w-24 h-24 sm:w-28 sm:h-28 rounded-3xl bg-gradient-to-br from-brand/15 to-brand/5 border border-brand/20 flex flex-col items-center justify-center p-3 shadow-inner relative group">
+        <div className="w-[120px] h-[112px] sm:w-[130px] sm:h-[120px] rounded-3xl bg-gradient-to-br from-brand/15 to-brand/5 border border-brand/20 flex flex-col items-center justify-center px-2.5 py-3 shadow-inner relative group">
           <div className="w-12 h-12 rounded-2xl bg-brand text-white flex items-center justify-center shadow-md mb-1.5">
             <Download className="w-6 h-6 animate-bounce" />
           </div>
-          <span className="text-[10px] font-black uppercase text-brand tracking-wider">Play Store</span>
+          <span className="text-[9.5px] sm:text-[10px] font-black uppercase text-brand tracking-wider whitespace-nowrap text-center">Play Store</span>
         </div>
       ),
     },
@@ -41,11 +41,11 @@ export default function HowItWorks() {
       bgLight: "bg-support-blue/15",
       textColor: "text-support-blue",
       visual: (
-        <div className="w-24 h-24 sm:w-28 sm:h-28 rounded-3xl bg-gradient-to-br from-support-blue/20 to-support-blue/5 border border-support-blue/25 flex flex-col items-center justify-center p-3 shadow-inner relative">
+        <div className="w-[120px] h-[112px] sm:w-[130px] sm:h-[120px] rounded-3xl bg-gradient-to-br from-support-blue/20 to-support-blue/5 border border-support-blue/25 flex flex-col items-center justify-center px-2.5 py-3 shadow-inner relative">
           <div className="w-12 h-12 rounded-2xl bg-white text-white flex items-center justify-center shadow-md mb-1.5">
             <Image
               src="/logos/Addhar icon.svg"
-              alt="Explore Services"
+              alt="Aadhar Link"
               width={32}
               height={32}
               className="w-7 h-7 object-contain rounded-md"
@@ -53,7 +53,7 @@ export default function HowItWorks() {
               loading="lazy"
             />
           </div>
-          <span className="text-[10px] font-black uppercase text-support-blue tracking-wider">Aadhar Link</span>
+          <span className="text-[9.5px] sm:text-[10px] font-black uppercase text-support-blue tracking-wider whitespace-nowrap text-center">Aadhar Link</span>
         </div>
       ),
     },
@@ -68,11 +68,11 @@ export default function HowItWorks() {
       bgLight: "bg-support-purple/25",
       textColor: "text-support-purple",
       visual: (
-        <div className="w-24 h-24 sm:w-28 sm:h-28 rounded-3xl bg-gradient-to-br from-support-purple/30 to-support-purple/10 border border-support-purple/40 flex flex-col items-center justify-center p-3 shadow-inner relative">
+        <div className="w-[120px] h-[112px] sm:w-[130px] sm:h-[120px] rounded-3xl bg-gradient-to-br from-support-purple/30 to-support-purple/10 border border-support-purple/40 flex flex-col items-center justify-center px-2.5 py-3 shadow-inner relative">
           <div className="w-12 h-12 rounded-2xl bg-[#9B80E6] text-white flex items-center justify-center shadow-md mb-1.5">
             <Users className="w-6 h-6" />
           </div>
-          <span className="text-[10px] font-black uppercase text-[#7352D0] tracking-wider">Family Profiles</span>
+          <span className="text-[9.5px] sm:text-[10px] font-black uppercase text-[#7352D0] tracking-wider whitespace-nowrap text-center">Family Profiles</span>
         </div>
       ),
     },
@@ -87,8 +87,8 @@ export default function HowItWorks() {
       bgLight: "bg-accent/15",
       textColor: "text-accent-alt",
       visual: (
-        <div className="w-24 h-24 sm:w-28 sm:h-28 rounded-3xl bg-[#E39FF6] to-accent/5 border border-accent/30 flex flex-col items-center justify-center p-3 shadow-inner relative">
-          <div className="w-12 h-12 rounded-2xl bg-[#ffff] text-white flex items-center justify-center shadow-md mb-1.5 overflow-hidden p-2">
+        <div className="w-[120px] h-[112px] sm:w-[130px] sm:h-[120px] rounded-3xl bg-gradient-to-br from-[#E39FF6]/30 to-[#E39FF6]/10 border border-accent/30 flex flex-col items-center justify-center px-2.5 py-3 shadow-inner relative">
+          <div className="w-12 h-12 rounded-2xl bg-white text-white flex items-center justify-center shadow-md mb-1.5 overflow-hidden p-2">
             <Image
               src="/logos/explore.svg"
               alt="Explore Services"
@@ -99,7 +99,7 @@ export default function HowItWorks() {
               loading="lazy"
             />
           </div>
-          <span className="text-[10px] font-black uppercase text-[#710193] tracking-wider">Explore</span>
+          <span className="text-[9.5px] sm:text-[10px] font-black uppercase text-[#710193] tracking-wider whitespace-nowrap text-center">Explore</span>
         </div>
       ),
     },
@@ -114,7 +114,7 @@ export default function HowItWorks() {
       bgLight: "bg-highlight/15",
       textColor: "text-highlight-dark",
       visual: (
-        <div className="w-24 h-24 sm:w-28 sm:h-28 rounded-3xl bg-gradient-to-br from-highlight/25 to-highlight/5 border border-highlight/30 flex flex-col items-center justify-center p-3 shadow-inner relative">
+        <div className="w-[120px] h-[112px] sm:w-[130px] sm:h-[120px] rounded-3xl bg-gradient-to-br from-highlight/25 to-highlight/5 border border-highlight/30 flex flex-col items-center justify-center px-2.5 py-3 shadow-inner relative">
           <div className="w-12 h-12 rounded-2xl bg-white text-ink flex items-center justify-center shadow-md mb-1.5 font-black overflow-hidden p-2">
             <Image
               src="/logos/calender.jpg"
@@ -126,7 +126,7 @@ export default function HowItWorks() {
               loading="lazy"
             />
           </div>
-          <span className="text-[10px] font-black uppercase text-highlight-dark tracking-wider">Manage</span>
+          <span className="text-[9.5px] sm:text-[10px] font-black uppercase text-highlight-dark tracking-wider whitespace-nowrap text-center">Manage</span>
         </div>
       ),
     },
@@ -304,7 +304,7 @@ export default function HowItWorks() {
                     <span className="text-[11px] font-mono font-bold text-ink-muted/70 tracking-widest uppercase">
                       RemoteWard
                     </span>
-                    <span className="bg-[#FFEBD6] text-[#D96B27] border border-[#FCD2B2] text-[10px] font-extrabold uppercase px-2.5 py-0.5 rounded-full tracking-wider">
+                    <span className="bg-[#FFEBD6] text-[#D96B27] border border-[#FCD2B2] text-[10px] font-extrabold uppercase px-2.5 py-0.5 rounded-full tracking-wider whitespace-nowrap">
                       {step.badge}
                     </span>
                   </div>

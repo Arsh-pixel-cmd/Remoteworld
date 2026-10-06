@@ -18,16 +18,14 @@ const scaleIn = (delay = 0) => ({
 });
 
 export default function Hero() {
-  // Authentic application flow illustrations (cache-busted to ensure newly added images load immediately)
   const heroImages = [
-    "/homepageScreens/flow1.jpg?v=2",
-    "/homepageScreens/flow2.png?v=2",
-    "/homepageScreens/flow3.png?v=2",
-    "/homepageScreens/flow4.png?v=2",
-    "/homepageScreens/flow5.jpg?v=2",
-    "/homepageScreens/flow6.png?v=2",
-    "/homepageScreens/flow7.png?v=2",
-    "/homepageScreens/flow8.png?v=2",
+    "/homepageScreens/flow2.png",
+    "/homepageScreens/flow3.png",
+    "/homepageScreens/flow4.png",
+    "/homepageScreens/flow5.jpg",
+    "/homepageScreens/flow6.png",
+    "/homepageScreens/flow7.png",
+    "/homepageScreens/flow8.png",
   ];
 
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -44,14 +42,14 @@ export default function Hero() {
       {/* Top Marquee Announcement Banner (Desktop & Tablet only) */}
       <TopBanner />
 
-      {/* Prominent RemoteWard Brand Logo in Top-Left */}
+      {/* RemoteWard Brand Logo — flow-based for consistent alignment */}
       <motion.div
         initial={{ opacity: 0, y: -16 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, ease: [0.25, 0.4, 0.25, 1] }}
-        className="absolute top-2 left-4 sm:top-4 sm:left-8 md:top-5 md:left-10 lg:top-6 lg:left-12 xl:top-7 xl:left-10 2xl:left-12 z-30 pointer-events-auto"
+        className="relative z-30 pt-3 sm:pt-4 md:pt-5 pl-4 sm:pl-8 md:pl-10 lg:pl-12"
       >
-        <Logo imgClassName="h-14 sm:h-16 md:h-18 lg:h-24 xl:h-28 2xl:h-32 w-auto" />
+        <Logo imgClassName="h-16 sm:h-20 md:h-24 lg:h-28 w-auto" />
       </motion.div>
 
       {/* Ambient top radiant glow behind banner */}
@@ -59,7 +57,14 @@ export default function Hero() {
       <div className="absolute top-20 left-10 w-48 h-48 bg-support-purple opacity-20 rounded-full blur-3xl pointer-events-none" />
       <div className="absolute bottom-20 right-10 w-80 h-80 bg-brand opacity-15 rounded-full blur-3xl pointer-events-none" />
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 sm:pt-24 lg:pt-28 pb-14 sm:pb-20 lg:pb-24 relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center flex-1 my-auto">
+      {/* Preload all hero images to prevent laggy loading on slide transitions */}
+      <div className="hidden" aria-hidden="true">
+        {heroImages.map((src) => (
+          <Image key={src} src={src} alt="" width={800} height={600} priority />
+        ))}
+      </div>
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-6 sm:pt-10 lg:pt-14 pb-14 sm:pb-20 lg:pb-24 relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center flex-1 my-auto">
         {/* Hero Text */}
         <div className="space-y-4 sm:space-y-5 max-w-2xl mt-4 lg:mt-0">
           {/* Title */}
@@ -158,13 +163,12 @@ export default function Hero() {
               >
                 <Image
                   src={heroImages[currentSlide]}
-                  alt="Hero illustration slider"
+                  alt={`RemoteWard app screen ${currentSlide + 1}`}
                   fill
-                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 500px"
+                  sizes="(max-width: 640px) 90vw, (max-width: 1024px) 50vw, 500px"
                   className="object-cover"
                   priority
                   loading="eager"
-                  unoptimized
                 />
               </motion.div>
             </AnimatePresence>
