@@ -9,10 +9,10 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://www.remoteward.com"),
+  metadataBase: new URL("https://remoteward.com/"),
   title: "RemoteWard | Healthcare, held together.",
   description:
-    "Stay connected to your care team and family. RemoteWard brings peace of mind, routine management, and instant support right to your fingertips—designed simply, for everyone.",
+    "No One Should Have to, Navigate Healthcare Alone.",
   keywords: [
     "RemoteWard",
     "healthcare",
@@ -29,7 +29,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "RemoteWard | Healthcare, held together.",
     description:
-      "Stay connected to your care team and family. RemoteWard brings peace of mind, routine management, and instant support right to your fingertips.",
+      "No One Should Have to, Navigate Healthcare Alone.",
     url: "https://www.remoteward.com",
     siteName: "RemoteWard",
     images: [

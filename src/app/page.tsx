@@ -3,7 +3,6 @@ import Navbar from "@/components/layout/Navbar";
 import Hero from "@/components/landing/Hero";
 import SupportersMarquee from "@/components/landing/SupportersMarquee";
 import SmoothScroll from "@/components/providers/SmoothScroll";
-import SplashScreen from "@/components/ui/SplashScreen";
 
 // Lazy load below-the-fold components for optimal initial bundle size and performance
 const ProblemSection = dynamic(() => import("@/components/landing/ProblemSection"));
@@ -17,24 +16,21 @@ const Footer = dynamic(() => import("@/components/layout/Footer"));
 
 export default function Home() {
   return (
-    <SplashScreen>
-      <SmoothScroll>
-        <Navbar />
-        <main className="pb-24 sm:pb-28">
-          <Hero />
-          <SupportersMarquee />
-          <ProblemSection />
-          <HowItWorks />
+    <SmoothScroll>
+      <Navbar />
+      <main className="pb-24 sm:pb-28">
+        <Hero />
+        <SupportersMarquee />
+        <ProblemSection />
+        <HowItWorks />
 
-          <StorySection />
-          <Download />
-          <PartnerForm />
-          <WhyWeStarted />
-          <ContactUs />
-        </main>
-        <Footer />
-      </SmoothScroll>
-    </SplashScreen>
+        <StorySection />
+        <Download />
+        <PartnerForm />
+        <WhyWeStarted />
+        <ContactUs />
+      </main>
+      <Footer />
+    </SmoothScroll>
   );
 }
-
