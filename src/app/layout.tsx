@@ -10,7 +10,7 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://remoteward.com/"),
-  title: "RemoteWard | Healthcare, held together.",
+  title: "No One Should Have to, Navigate Healthcare Alone.",
   description:
     "No One Should Have to, Navigate Healthcare Alone.",
   keywords: [
@@ -27,7 +27,7 @@ export const metadata: Metadata = {
     canonical: "/",
   },
   openGraph: {
-    title: "RemoteWard | Healthcare, held together.",
+    title: "No One Should Have to, Navigate Healthcare Alone.",
     description:
       "No One Should Have to, Navigate Healthcare Alone.",
     url: "https://www.remoteward.com",
@@ -45,7 +45,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "RemoteWard | Healthcare, held together.",
+    title: "No One Should Have to, Navigate Healthcare Alone.",
     description:
       "Stay connected to your care team and family. RemoteWard brings peace of mind, routine management, and instant support right to your fingertips.",
     images: ["/logo.svg"],
