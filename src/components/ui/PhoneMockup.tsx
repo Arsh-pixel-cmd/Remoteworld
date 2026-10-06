@@ -5,8 +5,6 @@ import { motion, AnimatePresence, type PanInfo } from "framer-motion";
 import Image from "next/image";
 
 const screens = [
-  { src: "/screens/flow-1.jpg", alt: "RemoteWard Splash Screen" },
-  { src: "/screens/flow-2.jpg", alt: "Welcome & Get Started" },
   { src: "/screens/flow-3.jpg", alt: "Home Dashboard" },
   { src: "/screens/flow-4.jpg", alt: "Link Health Records" },
   { src: "/screens/flow-5.jpg", alt: "ABHA Profile" },
